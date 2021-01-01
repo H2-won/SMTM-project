@@ -34,7 +34,7 @@ header {
 }
 
 .navContainer {
-    margin: 20px;
+    margin: 24px;
 }
 
 .logo {
@@ -154,7 +154,7 @@ section img:nth-child(10) {
     border-radius: 8px;
     font-size: 1.5rem;
     font-weight: bold;
-    border: none;
+    border: 3px solid var(--dark);
     background: linear-gradient(to bottom, rgba(0,0,0,0.05, var(--dark)));
     box-shadow: 4px 4px 10px #000000,
                 -4px -4px 10px #353535,
