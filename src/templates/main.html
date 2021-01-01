@@ -1,11 +1,37 @@
 <html>
 
 <head>
-
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
-    
+    <header>
+        <div class="navContainer">
+            <a href="/" class="logo">Ressemble</a>
+        </div>
+    </header>
+
+    <div>
+        <div class="titleContainer">
+            <div class="title">쇼미더머니 닮은꼴 테스트</div>
+            <div class="subTitle1">쇼미더머니 출연진 중, 나와 닮은 래퍼는?</div>
+            <div class="subTitle2">인공지능(AI) 모델을 통해 알아보자</div>
+        </div>
+
+        <div class="imageContainer">
+            <input type="file" class="imageInput" accept="image/*" onchange="imagePreview(event)" required>
+            <div class="description">
+                <i class="fas fa-arrow-circle-up"></i>
+                <h2>(사진 업로드)</h2>
+                <p><i class="fas fa-ban"></i>해당 사진은 어디에도 저장되지 않습니다.</p>
+            </div>
+        </div>
+    </div>
+
 </body>
+
+<script src="/static/js/main.js"></script>
 
 </html>
