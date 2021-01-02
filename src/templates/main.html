@@ -9,11 +9,11 @@
 <body>
     <header>
         <div class="navContainer">
-            <a href="/" class="logo">Ressemble</a>
+            <a href="/" class="logo">Resemble</a>
         </div>
     </header>
 
-    <div>
+    <div class="mainContainer">
         <div class="titleContainer">
             <div class="title">쇼미더머니 닮은꼴 테스트</div>
             <div class="subTitle1">쇼미더머니 출연진 중, 나와 닮은 래퍼는?</div>
@@ -21,7 +21,7 @@
         </div>
 
         <div class="imageContainer">
-            <input type="file" class="imageInput" accept="image/*" onchange="imagePreview(event)" required>
+            <input type="file" class="imageInput" accept="image/*" onchange="imagePreview(event)">
             <div class="description">
                 <i class="fas fa-arrow-circle-up"></i>
                 <h2>(사진 업로드)</h2>
@@ -30,33 +30,10 @@
         </div>
     </div>
 
-    <div class="loadingContainer">
-        <div class="loader">
-            <span style="--i:1;"></span>
-            <span style="--i:2;"></span>
-            <span style="--i:3;"></span>
-            <span style="--i:4;"></span>
-            <span style="--i:5;"></span>
-            <span style="--i:6;"></span>
-            <span style="--i:7;"></span>
-        </div>
-        <h2>AI가 당신과 닮은 래퍼를 분석 중입니다.</h2>
-    </div>
-
-    <div class="resultContainer">
-        <div class="resultTitle">당신과 닮은 래퍼는 '릴보이' 입니다.</div>
-        <div>
-            청춘에서만 보이는 그림자는 예수는 살 기쁘며, 사랑의 풍부하게 있으며, 힘있다. 작고 위하여, 공자는 이것이야말로 싶이 위하여, 붙잡아 때문이다. 피어나는 아니더면, 현저하게 같이, 꾸며 피가 천자만홍이 같이, 것이다. 이상, 석가는 힘차게 사막이다. 무엇을 간에 남는 같은 사랑의 할지니, 방황하였으며, 것은 힘있다. 대중을 있는 목숨을 속에서 아름다우냐? 청춘 인간이 않는 하는 석가는 칼이다. 온갖 목숨이 속에서 가지에 예수는 인간의 봄바람을 더운지라 칼이다. 위하여서 실로 보배를 피다. 없으면 이상이 구할 미묘한 두기 그들은 부패뿐이다. 인생을 눈에 온갖 청춘이 사막이다.
-
-내려온 거친 되는 착목한는 청춘 꾸며 동산에는 피다. 끓는 현저하게 풍부하게 피가 바이며, 피다. 풍부하게 충분히 이상은 인간의 만천하의 할지라도 힘차게 있으랴? 있는 그들은 시들어 청춘을 희망의 있으며, 있으랴? 곧 동력은 고행을 품었기 열매를 그들을 피어나기 것이다. 인간은 심장의 그들의 하여도 피다. 청춘의 할지라도 밝은 구하지 인간이 때문이다. 현저하게 생명을 피고, 무엇을 이상이 같으며, 수 노년에게서 것이다. 우리의 많이 봄바람을 생생하며, 이상의 따뜻한 두손을 품으며, 간에 그리하였는가? 인생에 가는 품으며, 같지 평화스러운 유소년에게서 교향악이다. 심장은 커다란 방황하였으며, 천지는 고행을 내는 가장 것이다.
-        </div>
-        <div class="resultGraph">
-            
-        </div>
-    </div>
-
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 <script src="/static/js/main.js"></script>
 
 </html>

@@ -58,6 +58,7 @@ section img {
     height: 12%;
     object-fit: cover;
     border-radius: 4px;
+    opacity: 0.6;
 }
 
 section img:nth-child(1) {
@@ -165,9 +166,9 @@ section img:nth-child(10) {
 }
 
 .startBtn:hover{
-    color: crimson;
+    color: #66C1FA;
     cursor: pointer;
-    border: 3px solid crimson;
+    border: 3px solid #66C1FA;
 }
 
 .startBtn:focus{

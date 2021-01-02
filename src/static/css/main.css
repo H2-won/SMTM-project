@@ -12,11 +12,18 @@ header {
     width: 100%;
 }
 
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .imageContainer {
     position: relative;
     width: 40vw;
     height: 50vh;
     background: var(--dark);
+    border: 3px solid var(--dark);
     box-shadow: 4px 4px 10px #000000,
         -4px -4px 10px #353535,
         inset -2px -2px 4px #353535,
@@ -55,14 +62,14 @@ header {
 }
 
 .description i {
-    margin: 20px;
+    margin: 12px;
     font-size: 3rem;
 }
 
 .description p {
     color: var(--grey);
     font-weight: 400;
-    margin: 20px;
+    margin: 12px;
 }
 
 .description p i {
@@ -76,40 +83,75 @@ header {
 }
 
 .loadingContainer {
-    margin-top: 3rem;
+    margin: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
 .loader {
-    display: flex;
-    margin-bottom: 1.5rem;
-}
-
-.loader span {
-    width: 20px;
-    height: 20px;
-    margin: 0 10px;
+    position: relative;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
-    box-shadow: 4px 4px 10px #000000,
-        -4px -4px 10px #353535,
-        inset -2px -2px 4px #353535,
-        inset 2px 2px 4px #000000;
-    animation: loading 1.725s linear infinite;
-    animation-delay: calc(0.125s * var(--i));
+    background: #121212;
+    animation: loading 1.5s linear infinite;
 }
 
-@keyframes loading {
-    0% {
-        box-shadow: 2px 2px 4px #000000,
-            -2px -2px 4px #353535;
+@keyframes loading{
+    0%{
+        transform: rotate(0deg);
     }
+    100%{
+        transform: rotate(360deg);
+    }
+}
 
-    100% {
-        box-shadow: inset -2px -2px 4px #353535,
-            inset 2px 2px 4px #000000;
-    }
+.loader::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to top, transparent, rgba(102, 193, 250,0.6));
+    background-size: 50px 50px;
+    background-repeat: no-repeat;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+.loader::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 45%;
+    width: 9px;
+    height: 9px;
+    background: #66c1fa;
+    border-radius: 50%;
+    z-index: 2;
+    box-shadow: 0 0 10px #66c1fa,
+                0 0 20px #66c1fa,
+                0 0 30px #66c1fa,
+                0 0 40px #66c1fa;
+}
+
+.loader span{
+    position: absolute;
+    top:9px;
+    left:9px;
+    right: 9px;
+    bottom:9px;
+    background: #121212;
+    border-radius: 50%;
+}
+
+.loadingContainer h2{
+    margin-top: 24px;
+    font-weight: 100;
+    color: #66c1fa;
 }
 
 .resultContainer {
@@ -123,4 +165,18 @@ header {
 
 .resultTitle{
     font-size: 2rem;
+}
+
+.resultLabel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.resultProbability{
+    width: 300px;
+    background: #000;
+    border-radius: 4px;
+    margin-left: 12px;
 }
