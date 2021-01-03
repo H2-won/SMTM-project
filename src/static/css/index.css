@@ -34,7 +34,7 @@ header {
 }
 
 .navContainer {
-    margin: 20px;
+    margin: 24px;
 }
 
 .logo {
@@ -58,6 +58,7 @@ section img {
     height: 12%;
     object-fit: cover;
     border-radius: 4px;
+    opacity: 0.6;
 }
 
 section img:nth-child(1) {
@@ -154,7 +155,7 @@ section img:nth-child(10) {
     border-radius: 8px;
     font-size: 1.5rem;
     font-weight: bold;
-    border: none;
+    border: 3px solid var(--dark);
     background: linear-gradient(to bottom, rgba(0,0,0,0.05, var(--dark)));
     box-shadow: 4px 4px 10px #000000,
                 -4px -4px 10px #353535,
@@ -165,9 +166,9 @@ section img:nth-child(10) {
 }
 
 .startBtn:hover{
-    color: crimson;
+    color: #66C1FA;
     cursor: pointer;
-    border: 3px solid crimson;
+    border: 3px solid #66C1FA;
 }
 
 .startBtn:focus{

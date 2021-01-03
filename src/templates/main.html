@@ -9,11 +9,11 @@
 <body>
     <header>
         <div class="navContainer">
-            <a href="/" class="logo">Ressemble</a>
+            <a href="/" class="logo">Resemble</a>
         </div>
     </header>
 
-    <div>
+    <div class="mainContainer">
         <div class="titleContainer">
             <div class="title">쇼미더머니 닮은꼴 테스트</div>
             <div class="subTitle1">쇼미더머니 출연진 중, 나와 닮은 래퍼는?</div>
@@ -21,17 +21,19 @@
         </div>
 
         <div class="imageContainer">
-            <input type="file" class="imageInput" accept="image/*" onchange="imagePreview(event)" required>
+            <input type="file" class="imageInput" accept="image/*" onchange="imagePreview(event)">
             <div class="description">
                 <i class="fas fa-arrow-circle-up"></i>
                 <h2>(사진 업로드)</h2>
-                <p><i class="fas fa-ban"></i>해당 사진은 어디에도 저장되지 않습니다.</p>
+                <p>해당 사진은 어디에도 저장되지 않습니다.</p>
             </div>
         </div>
     </div>
 
 </body>
 
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
 <script src="/static/js/main.js"></script>
 
 </html>
