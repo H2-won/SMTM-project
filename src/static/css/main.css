@@ -61,6 +61,10 @@ header {
     transition: 0.3s all;
 }
 
+.description h2{
+    font-weight: normal;
+}
+
 .description i {
     margin: 12px;
     font-size: 3rem;
@@ -155,28 +159,120 @@ header {
 }
 
 .resultContainer {
-    padding: 5rem;
+    margin: 3rem;
+    padding: 3rem 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     text-align: center;
+    box-shadow: 4px 4px 10px #000000,
+                -4px -4px 10px #353535,
+                inset -2px -2px 4px #353535,
+                inset 2px 2px 4px #000000;
 }
 
-.resultTitle{
-    font-size: 2rem;
+.resultContainer .matchContainer *{
+    margin: 1rem;
+}
+
+.resultContainer .matchContainer img{
+    max-width: 300px;
+    max-height: 300px;
+    min-width: 250px;
+    min-height: 250px;
+}
+
+.resultContainer .matchContainer p{
+    font-weight: normal;
+    font-size: 1.5rem;
+}
+
+.resultContainer .matchContainer div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.resultContainer .matchContainer .matchName{
+    font-size: 2.5rem;
+    color: #66c1fa;
+    margin: 0;
 }
 
 .resultLabel{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 1rem;
+    margin: 0.7rem;
+}
+
+.resultName{
+    min-width: 100px;
+    font-weight: normal;
+    font-size: 1.3rem;
+}
+
+.probabilityBox{
+    min-width: 500px;
+    height: 2rem;
+    border-radius: 4px;
+    margin-left: 12px;
+    background: #fff;
 }
 
 .resultProbability{
-    width: 300px;
-    background: #000;
-    border-radius: 4px;
-    margin-left: 12px;
+    width: 30px;
+    border-radius: 3px;
+    line-height: 2rem;
+    color: #fff;
 }
+
+.probability1{
+    background: #66c1fa;
+    width: 80%;
+    border-radius: 4px;
+}
+.probability2{
+    background: #2c85bb;
+    width: 15%;
+}
+.probability3{
+    background: #1a6594;
+    width: 5%;
+}
+.probability4{
+    background: #032439;
+    width: 5%;
+}
+
+.retryBtn{
+    width: 200px;
+    height: 60px;
+    margin-top: 3rem;
+    color: var(--gold);
+    border-radius: 8px;
+    font-size: 1.5rem;
+    border: 3px solid var(--gold);
+    background: linear-gradient(to bottom, rgba(0,0,0,0.05, var(--dark)));
+    box-shadow: 4px 4px 10px #000000,
+                -4px -4px 10px #353535,
+                inset -2px -2px 4px #353535,
+                inset 2px 2px 4px #000000;
+
+    transition: 0.3s all;
+}
+
+.retryBtn:hover{
+    color: #66C1FA;
+    cursor: pointer;
+    border: 3px solid #66C1FA;
+}
+
+.retryBtn:focus{
+    outline: none;
+}
+
+/* footer{
+    width: 100%;
+} */

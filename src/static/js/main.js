@@ -48,7 +48,7 @@ function createImage(e) {
 
 // ---------------------------- teachablemachine ---------------------------
 
-let model, resultContainer, maxPredictions;
+let model, maxPredictions;
 
 initTeachablemachine();
 
@@ -62,30 +62,61 @@ async function initTeachablemachine() {
 }
 
 async function predict() {
-    const resultContainer = createResultContainer();
-    document.body.appendChild(resultContainer);
+
     const userImage = document.querySelector('.userImage');
     const prediction = await model.predict(userImage, false);
-    for (let i = 0; i < maxPredictions; i++) {
-        const probability = prediction[i].probability.toFixed(2);
-        if (probability >= 0.01) {
-            resultContainer.appendChild(createResultLabel(prediction[i], probability));
-        }
+
+    const resultObjects = createResultObject(prediction);
+    resultObjects.sort((a, b) => parseFloat(b.probability - a.probability));
+    console.log(resultObjects);
+
+    const resultContainer = createResultContainer();
+    document.querySelector('.mainContainer').after(resultContainer);
+    resultContainer.innerHTML = `<div class='matchContainer'>
+    <img src='/static/img/profile/${resultObjects[0].name}.jpg'>
+    <p>당신과 닮은 래퍼는</p>
+    <div><p class='matchName'>'${resultObjects[0].name}'</p><p>입니다.</p></div>
+    </div>`;
+    for (let i = 0; i <= 3; i++) {
+        resultContainer.appendChild(createResultLabel(resultObjects[i], i));
     }
+
+    const retryBtn = document.createElement('button');
+    retryBtn.classList.add('retryBtn');
+    retryBtn.innerText = '재시도';
+    retryBtn.addEventListener('click', () => location.reload());
+    resultContainer.appendChild(retryBtn);
+
+    window.scrollTo(0, resultContainer.offsetTop + 50);
 }
 
 function createResultContainer() {
-    resultContainer = document.createElement("div");
+    const resultContainer = document.createElement("div");
     resultContainer.classList.add("resultContainer");
     return resultContainer;
 }
 
-function createResultLabel(prediction, probability) {
-    const p = Math.floor(probability * 100) + '%';
+function createResultObject(prediction) {
+    const resultObjects = [];
+    for (let i = 0; i < maxPredictions; i++) {
+        const rapperName = prediction[i].className;
+        const probability = prediction[i].probability.toFixed(2);
+        resultObjects.push({
+            name: rapperName,
+            probability: probability
+        });
+    }
+    return resultObjects;
+}
+
+function createResultLabel(resultObject, index) {
+    const resultProbability = Math.floor(resultObject.probability * 100);
     resultLabel = document.createElement('div');
     resultLabel.classList.add('resultLabel');
-    resultLabel.innerHTML = `<div class='resultName'>${prediction.className}</div>
-        <div class='resultProbability'>${p}</div>`;
+    resultLabel.innerHTML = `<div class='resultName'>${resultObject.name}</div>
+        <div class='probabilityBox'>
+        <div class='resultProbability probability${index+1}' style='width:${(resultProbability > 0) ? ((resultProbability > 5) ? resultProbability : 5) : 3}%'>${resultProbability}%</div>
+        </div>`;
 
     return resultLabel;
 }
