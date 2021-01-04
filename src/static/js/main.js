@@ -17,6 +17,8 @@ function imagePreview(e) {
 
     const imageContainer = document.querySelector('.imageContainer');
     const file = e.target.files[0];
+    if (file === null) return;
+
     if (!file.type.match('image/.*')) {
         alert('이미지만 업로드 가능합니다!');
         return;
@@ -113,9 +115,11 @@ function createResultLabel(resultObject, index) {
     const resultProbability = Math.floor(resultObject.probability * 100);
     resultLabel = document.createElement('div');
     resultLabel.classList.add('resultLabel');
-    resultLabel.innerHTML = `<div class='resultName'>${resultObject.name}</div>
-        <div class='probabilityBox'>
-        <div class='resultProbability probability${index+1}' style='width:${(resultProbability > 0) ? ((resultProbability > 5) ? resultProbability : 5) : 3}%'>${resultProbability}%</div>
+    resultLabel.innerHTML = `<img src='/static/img/profile/${resultObject.name}.jpg'>
+        <div class='resultName'>${resultObject.name}</div>
+        <div class='probabilityContainer'>
+            <div class='probabilityBox'></div>
+            <div class='resultProbability probability${index+1}' style='width:${(resultProbability > 0) ? ((resultProbability > 5) ? resultProbability-0.5 : 5) : 3}%'>${resultProbability}%</div>
         </div>`;
 
     return resultLabel;

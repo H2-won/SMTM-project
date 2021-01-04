@@ -170,6 +170,7 @@ header {
                 -4px -4px 10px #353535,
                 inset -2px -2px 4px #353535,
                 inset 2px 2px 4px #000000;
+    border: 3px solid #000000;
 }
 
 .resultContainer .matchContainer *{
@@ -207,42 +208,65 @@ header {
     margin: 0.7rem;
 }
 
+.resultLabel img{
+    width: 3rem;
+    height: 3rem;
+    border-radius: 2px;
+}
+
 .resultName{
     min-width: 100px;
     font-weight: normal;
     font-size: 1.3rem;
 }
 
+.probabilityContainer{
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 500px;
+    height: 2rem;
+}
+
 .probabilityBox{
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    padding-left: 0.1rem;
+    align-items: center;
     min-width: 500px;
     height: 2rem;
     border-radius: 4px;
-    margin-left: 12px;
-    background: #fff;
+    box-shadow: 4px 4px 8px #000000,
+                -4px -4px 8px #353535,
+                inset -2px -2px 4px #353535,
+                inset 2px 2px 4px #000000;
 }
 
 .resultProbability{
+    position: absolute;
+    z-index: 1;
     width: 30px;
-    border-radius: 3px;
-    line-height: 2rem;
-    color: #fff;
+    color: #fcfcfc;
+    border-radius: 4px;
+    line-height: 1.8rem;
+    margin-left: 0.1rem;
 }
 
 .probability1{
     background: #66c1fa;
     width: 80%;
-    border-radius: 4px;
 }
 .probability2{
-    background: #2c85bb;
+    background: #2671AF;
     width: 15%;
 }
 .probability3{
-    background: #1a6594;
+    background: #CD4C62;
     width: 5%;
 }
 .probability4{
-    background: #032439;
+    background: #F9A21A;
     width: 5%;
 }
 
