@@ -27,6 +27,7 @@ function imagePreview(e) {
     var fileReader = new FileReader();
     fileReader.onload = function (e) {
 
+        disableImageInput(imageContainer);
         insertLoader();
         window.scrollTo(0, imageContainer.offsetTop - 40);
         document.querySelector('.description').style.opacity = '0';
@@ -48,6 +49,13 @@ function createImage(e) {
     return img;
 }
 
+function disableImageInput(imageContainer) {
+    const imageInput = document.querySelector('.imageInput');
+    imageInput.disabled = true;
+    imageInput.classList.add('disabled');
+    imageContainer.classList.add('disabled');
+    // document.querySelector('.imageContainer').style.cursor = 'default';
+}
 // ---------------------------- teachablemachine ---------------------------
 
 let model, maxPredictions;

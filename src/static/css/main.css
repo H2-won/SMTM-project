@@ -28,9 +28,11 @@ header {
         -4px -4px 10px #353535,
         inset -2px -2px 4px #353535,
         inset 2px 2px 4px #000000;
+    border-radius: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: 0.3s all;
 }
 
 .imageContainer input {
@@ -61,6 +63,20 @@ header {
     transition: 0.3s all;
 }
 
+.imageContainer:hover{
+    border: 3px solid var(--gold);
+}
+
+.imageContainer:hover .description {
+    background: #242424;
+    border-radius: 4px;
+}
+
+.disabled:hover{
+    cursor: default;
+    border: 3px solid var(--dark);
+}
+
 .description h2{
     font-weight: normal;
 }
@@ -80,10 +96,6 @@ header {
     font-size: inherit;
     padding-top: 2px;
     margin: 0 8px 0 0;
-}
-
-.imageContainer:hover .description {
-    background: #353535;
 }
 
 .loadingContainer {
