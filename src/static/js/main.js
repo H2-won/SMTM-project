@@ -83,7 +83,7 @@ async function predict() {
     const resultContainer = createResultContainer();
     document.querySelector('.mainContainer').after(resultContainer);
     resultContainer.innerHTML = `<div class='matchContainer'>
-    <img src='/static/img/profile/${resultObjects[0].name}.jpg'>
+    <img src='src/static/img/profile/${resultObjects[0].name}.jpg'>
     <p>당신과 닮은 래퍼는</p>
     <div><p class='matchName'>'${resultObjects[0].name}'</p><p>입니다.</p></div>
     </div>`;
@@ -123,7 +123,7 @@ function createResultLabel(resultObject, index) {
     const resultProbability = Math.floor(resultObject.probability * 100);
     resultLabel = document.createElement('div');
     resultLabel.classList.add('resultLabel');
-    resultLabel.innerHTML = `<img src='/static/img/profile/${resultObject.name}.jpg'>
+    resultLabel.innerHTML = `<img src='src/static/img/profile/${resultObject.name}.jpg'>
         <div class='resultName'>${resultObject.name}</div>
         <div class='probabilityContainer'>
             <div class='probabilityBox'></div>
