@@ -136,6 +136,10 @@ section img:nth-child(10) {
 
 .titleContainer .title {
     font-size: 3em;
+    text-align: center;
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
 }
 
 .titleContainer .subTitle1 {
@@ -156,21 +160,108 @@ section img:nth-child(10) {
     font-size: 1.5rem;
     font-weight: bold;
     border: 3px solid var(--dark);
-    background: linear-gradient(to bottom, rgba(0,0,0,0.05, var(--dark)));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05, var(--dark)));
     box-shadow: 4px 4px 10px #000000,
-                -4px -4px 10px #353535,
-                inset -2px -2px 4px #353535,
-                inset 2px 2px 4px #000000;
+        -4px -4px 10px #353535,
+        inset -2px -2px 4px #353535,
+        inset 2px 2px 4px #000000;
 
     transition: 0.3s all;
 }
 
-.startBtn:hover{
+.startBtn:hover {
     color: #66C1FA;
     cursor: pointer;
     border: 3px solid #66C1FA;
 }
 
-.startBtn:focus{
+.startBtn:focus {
     outline: none;
+}
+
+/* -------------------------- media query ------------------------ */
+@media screen and (max-width: 480px) {
+    .navContainer{
+        margin:16px;
+    }
+    .titleContainer .title{
+        font-size: 2.6em;
+        text-align: center;
+    }
+    .titleContainer .titleLogo{
+        width: 180px;
+    }
+    section img {
+        position: absolute;
+        width: 12%;
+        height: 6%;
+        border-radius: 4px;
+        opacity: 0.4;
+    }
+    
+    section img:nth-child(1) {
+        top: 18%;
+        left: 5%;
+    }
+    
+    section img:nth-child(2) {
+        top: 10%;
+        left: 22%;
+        filter: gray;
+        -webkit-filter: grayscale(100%);
+    }
+    
+    section img:nth-child(3) {
+        top: 8%;
+        left: 44%;
+    }
+    
+    section img:nth-child(4) {
+        top: 10%;
+        left: 66%;
+    }
+    
+    section img:nth-child(5) {
+        top: 18%;
+        left: 85%;
+    }
+    
+    section img:nth-child(6) {
+        top: 75%;
+        left: 5%;
+    }
+    
+    section img:nth-child(7) {
+        top: 80%;
+        left: 25%;
+    }
+    
+    section img:nth-child(8) {
+        top: 73%;
+        left: 44%;
+        filter: gray;
+        -webkit-filter: grayscale(100%);
+    }
+    
+    section img:nth-child(9) {
+        top: 80%;
+        left: 65%;
+    }
+    
+    section img:nth-child(10) {
+        top: 72%;
+        left: 83%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* ... */
+}
+
+@media screen and (max-width: 1024px) {
+    /* ... */
+}
+
+@media screen and (max-width: 1200px) {
+
 }
