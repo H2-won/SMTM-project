@@ -188,12 +188,16 @@ section img:nth-child(10) {
         padding-top: 3rem;
         text-align: center;
     }
+    .title div:nth-child(1){
+        margin: 0 0.5rem;
+    }
     .titleContainer .title{
         font-size: 2.6em;
     }
     .titleContainer .titleLogo{
         width: 180px;
     }
+    
     section img {
         position: absolute;
         width: 12%;
