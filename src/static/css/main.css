@@ -22,6 +22,7 @@ header {
     position: relative;
     width: 40vw;
     height: 50vh;
+    margin:3rem;
     background: var(--dark);
     border: 3px solid var(--dark);
     box-shadow: 4px 4px 10px #000000,
@@ -99,7 +100,7 @@ header {
 }
 
 .loadingContainer {
-    margin: 3rem;
+    margin-bottom: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -318,11 +319,13 @@ header {
 @media screen and (max-width: 480px) {
     .titleContainer .title{
         font-size: 2.6rem;
-        margin-top: 1em;
+    }
+    .title div:nth-child(1){
+        margin: 0 0.5rem;
     }
     .imageContainer {
         width: 75vw;
-        height: 85vw;
+        height: 75vw;
     }
     .imageContainer .description{
         width: 95%;
@@ -339,6 +342,7 @@ header {
         width: 100%;
         margin: 3rem 0;
         padding: 3rem 0;
+        border: 3px 0 solid var(--dark);
     }
 
     .resultContainer .matchContainer * {
@@ -369,8 +373,8 @@ header {
     }
 
     .probabilityContainer {
-        min-width: 65%;
-        max-width: 65%;
+        min-width: 68%;
+        max-width: 68%;
         height: 1.7rem;
     }
 

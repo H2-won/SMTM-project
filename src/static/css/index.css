@@ -122,7 +122,6 @@ section img:nth-child(10) {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-bottom: 3em;
 }
 
 .titleContainer .titleLogo {
@@ -154,7 +153,7 @@ section img:nth-child(10) {
 .titleContainer .startBtn {
     width: 240px;
     height: 80px;
-    margin: 40px;
+    margin: 3rem;
     color: var(--gold);
     border-radius: 8px;
     font-size: 1.5rem;
@@ -181,12 +180,16 @@ section img:nth-child(10) {
 
 /* -------------------------- media query ------------------------ */
 @media screen and (max-width: 480px) {
+
     .navContainer{
         margin:16px;
     }
+    .titleContainer{
+        padding-top: 3rem;
+        text-align: center;
+    }
     .titleContainer .title{
         font-size: 2.6em;
-        text-align: center;
     }
     .titleContainer .titleLogo{
         width: 180px;
@@ -200,56 +203,56 @@ section img:nth-child(10) {
     }
     
     section img:nth-child(1) {
-        top: 18%;
+        top: 20%;
         left: 5%;
     }
     
     section img:nth-child(2) {
-        top: 10%;
+        top: 12%;
         left: 22%;
         filter: gray;
         -webkit-filter: grayscale(100%);
     }
     
     section img:nth-child(3) {
-        top: 8%;
+        top: 10%;
         left: 44%;
     }
     
     section img:nth-child(4) {
-        top: 10%;
+        top: 12%;
         left: 66%;
     }
     
     section img:nth-child(5) {
-        top: 18%;
+        top: 20%;
         left: 85%;
     }
     
     section img:nth-child(6) {
-        top: 75%;
+        top: 77%;
         left: 5%;
     }
     
     section img:nth-child(7) {
-        top: 80%;
+        top: 82%;
         left: 25%;
     }
     
     section img:nth-child(8) {
-        top: 73%;
+        top: 85%;
         left: 44%;
         filter: gray;
         -webkit-filter: grayscale(100%);
     }
     
     section img:nth-child(9) {
-        top: 80%;
+        top: 82%;
         left: 65%;
     }
     
     section img:nth-child(10) {
-        top: 72%;
+        top: 77%;
         left: 83%;
     }
 }
