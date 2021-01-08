@@ -1,4 +1,4 @@
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -12,7 +12,7 @@ header {
     width: 100%;
 }
 
-.mainContainer{
+.mainContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +22,7 @@ header {
     position: relative;
     width: 40vw;
     height: 50vh;
-    margin:3rem;
+    margin: 3rem 0 7rem 0;
     background: var(--dark);
     border: 3px solid var(--dark);
     box-shadow: 4px 4px 10px #000000,
@@ -64,7 +64,7 @@ header {
     transition: 0.3s all;
 }
 
-.imageContainer:hover{
+.imageContainer:hover {
     border: 3px solid var(--gold);
 }
 
@@ -73,12 +73,12 @@ header {
     border-radius: 4px;
 }
 
-.disabled:hover{
+.disabled:hover {
     cursor: default;
     border: 3px solid var(--dark);
 }
 
-.description h2{
+.description h2 {
     font-weight: normal;
 }
 
@@ -117,11 +117,12 @@ header {
     animation: loading 1.5s linear infinite;
 }
 
-@keyframes loading{
-    0%{
+@keyframes loading {
+    0% {
         transform: rotate(0deg);
     }
-    100%{
+
+    100% {
         transform: rotate(360deg);
     }
 }
@@ -133,7 +134,7 @@ header {
     left: 0;
     width: 50%;
     height: 100%;
-    background: linear-gradient(to top, transparent, rgba(102, 193, 250,0.6));
+    background: linear-gradient(to top, transparent, rgba(102, 193, 250, 0.6));
     background-size: 50px 50px;
     background-repeat: no-repeat;
     border-top-left-radius: 50px;
@@ -151,22 +152,22 @@ header {
     border-radius: 50%;
     z-index: 2;
     box-shadow: 0 0 10px #66c1fa,
-                0 0 20px #66c1fa,
-                0 0 30px #66c1fa,
-                0 0 40px #66c1fa;
+        0 0 20px #66c1fa,
+        0 0 30px #66c1fa,
+        0 0 40px #66c1fa;
 }
 
-.loader span{
+.loader span {
     position: absolute;
-    top:9px;
-    left:9px;
+    top: 9px;
+    left: 9px;
     right: 9px;
-    bottom:9px;
+    bottom: 9px;
     background: #121212;
     border-radius: 50%;
 }
 
-.loadingContainer h2{
+.loadingContainer h2 {
     margin-top: 24px;
     font-weight: 100;
     color: #66c1fa;
@@ -181,60 +182,61 @@ header {
     flex-direction: column;
     text-align: center;
     box-shadow: 4px 4px 10px #000000,
-                -4px -4px 10px #353535,
-                inset -2px -2px 4px #353535,
-                inset 2px 2px 4px #000000;
+        -4px -4px 10px #353535,
+        inset -2px -2px 4px #353535,
+        inset 2px 2px 4px #000000;
     border: 3px solid #000000;
 }
 
-.resultContainer .matchContainer *{
+.resultContainer .matchContainer * {
     margin: 1rem;
 }
 
-.resultContainer .matchContainer img{
+.resultContainer .matchContainer img {
     max-width: 300px;
     max-height: 300px;
     min-width: 250px;
     min-height: 250px;
 }
 
-.resultContainer .matchContainer p{
+.resultContainer .matchContainer p {
     font-weight: normal;
     font-size: 1.5rem;
 }
 
-.resultContainer .matchContainer div{
+.resultContainer .matchContainer div {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.resultContainer .matchContainer .matchName{
+.resultContainer .matchContainer .matchName {
     font-size: 2.5rem;
     color: #66c1fa;
     margin: 0;
 }
 
-.resultLabel{
+.resultLabel {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0.7rem;
 }
 
-.resultLabel img{
+.resultLabel img {
     width: 3rem;
     height: 3rem;
     border-radius: 2px;
+    cursor: pointer;
 }
 
-.resultName{
+.resultName {
     min-width: 100px;
     font-weight: normal;
     font-size: 1.3rem;
 }
 
-.probabilityContainer{
+.probabilityContainer {
     position: relative;
     display: flex;
     align-items: center;
@@ -242,7 +244,7 @@ header {
     height: 2rem;
 }
 
-.probabilityBox{
+.probabilityBox {
     position: absolute;
     z-index: 2;
     display: flex;
@@ -252,12 +254,12 @@ header {
     height: 2rem;
     border-radius: 4px;
     box-shadow: 4px 4px 8px #000000,
-                -4px -4px 8px #353535,
-                inset -2px -2px 4px #353535,
-                inset 2px 2px 4px #000000;
+        -4px -4px 8px #353535,
+        inset -2px -2px 4px #353535,
+        inset 2px 2px 4px #000000;
 }
 
-.resultProbability{
+.resultProbability {
     position: absolute;
     z-index: 1;
     width: 30px;
@@ -267,24 +269,27 @@ header {
     margin-left: 0.1rem;
 }
 
-.probability1{
+.probability1 {
     background: #66c1fa;
     width: 80%;
 }
-.probability2{
+
+.probability2 {
     background: #2671AF;
     width: 15%;
 }
-.probability3{
+
+.probability3 {
     background: #CD4C62;
     width: 5%;
 }
-.probability4{
+
+.probability4 {
     background: #F9A21A;
     width: 5%;
 }
 
-.retryBtn{
+.retryBtn {
     width: 200px;
     height: 60px;
     margin-top: 3rem;
@@ -292,50 +297,130 @@ header {
     border-radius: 8px;
     font-size: 1.5rem;
     border: 3px solid var(--gold);
-    background: linear-gradient(to bottom, rgba(0,0,0,0.05, var(--dark)));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05, var(--dark)));
     box-shadow: 4px 4px 10px #000000,
-                -4px -4px 10px #353535,
-                inset -2px -2px 4px #353535,
-                inset 2px 2px 4px #000000;
+        -4px -4px 10px #353535,
+        inset -2px -2px 4px #353535,
+        inset 2px 2px 4px #000000;
 
     transition: 0.3s all;
 }
 
-.retryBtn:hover{
+.retryBtn:hover {
     color: #66C1FA;
     cursor: pointer;
     border: 3px solid #66C1FA;
 }
 
-.retryBtn:focus{
+.retryBtn:focus {
     outline: none;
 }
 
-/* footer{
+.imageModal {
+    position: fixed;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    cursor: pointer;
+}
+
+.imageModal img {
+    position: relative;
+    z-index: 5;
+    width: 350px;
+    height: 350px;
+}
+
+footer {
     width: 100%;
-} */
+    display: flex;
+    border-top: 3px solid var(--dark);
+    padding: 2rem 0;
+    box-shadow: 4px 4px 10px #000000,
+        -4px -4px 10px #353535,
+        inset -2px -2px 4px #353535,
+        inset 2px 2px 4px #000000;
+}
+
+footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+
+footer i {
+    margin-right: 0.4rem;
+}
+
+.footerLogo {
+    font-size: 2rem;
+    margin: 1rem;
+}
+
+.footerCopyright,
+.footerContents {
+    display: flex;
+    flex-direction: row;
+    color: var(--grey);
+    font-size: 1rem;
+}
+
+.footerTitle {
+    font-size: 1.3rem;
+    margin: 1rem;
+}
+
+.footerContents a,
+.footerContents a:visited {
+    color: var(--grey);
+    margin: 0 0.3rem;
+}
+
+.footerEmail,
+.footerContents a {
+    cursor: pointer;
+    transition: 0.15s ease-in-out;
+}
+
+.footerEmail:hover,
+.footerContents a:hover {
+    color: #66C1FA;
+}
+
+
 
 /* -------------------------- media query ------------------------ */
 @media screen and (max-width: 480px) {
-    .titleContainer .title{
+    .titleContainer .title {
         font-size: 2.6rem;
     }
+
     .imageContainer {
         width: 75vw;
         height: 75vw;
     }
-    .imageContainer .description{
+
+    .imageContainer .description {
         width: 95%;
         height: 95%;
     }
-    .imageContainer img{
+
+    .imageContainer img {
         min-width: 70%;
         min-width: 70%;
         max-width: 90%;
         max-height: 90%;
     }
 
-    .resultContainer{
+    .resultContainer {
         width: 100%;
         margin: 3rem 0;
         padding: 3rem 0;
@@ -352,17 +437,18 @@ header {
         margin: 0.7rem;
     }
 
-    .resultContainer .matchContainer img{
+    .resultContainer .matchContainer img {
         max-width: 250px;
         max-height: 250px;
         min-width: 200px;
         min-height: 200px;
     }
 
-    .resultLabel{
+    .resultLabel {
         width: 100%;
         margin: 0.7rem 0;
     }
+
     .resultLabel img {
         width: 10%;
         min-height: 40px;
@@ -376,8 +462,8 @@ header {
     }
 
     .probabilityContainer {
-        min-width: 67%;
-        max-width: 67%;
+        min-width: 64%;
+        max-width: 64%;
         height: 1.7rem;
     }
 
@@ -391,7 +477,8 @@ header {
             inset -2px -2px 4px #353535,
             inset 2px 2px 4px #000000;
     }
-    .resultProbability{
+
+    .resultProbability {
         min-width: 4%;
         line-height: 1.45rem;
         margin-left: 0.05rem;
@@ -406,6 +493,4 @@ header {
     /* ... */
 }
 
-@media screen and (max-width: 1200px) {
-
-}
+@media screen and (max-width: 1200px) {}

@@ -89,6 +89,7 @@ async function predict() {
     </div>`;
     for (let i = 0; i <= 3; i++) {
         resultContainer.appendChild(createResultLabel(resultObjects[i], i));
+        enlargeResultImage(resultObjects[i], i);
     }
 
     const retryBtn = document.createElement('button');
@@ -132,3 +133,31 @@ function createResultLabel(resultObject, index) {
 
     return resultLabel;
 }
+
+function enlargeResultImage(resultObject, index){
+    const resultImage = document.querySelectorAll('.resultLabel img');
+    resultImage[index].addEventListener('click', ()=>{
+        const imageModal = document.createElement('div');
+        imageModal.classList.add('imageModal');
+        const enlargeImage = `<img src='src/static/img/profile/${resultObject.name}.jpg'>`;
+        imageModal.innerHTML = enlargeImage;
+        imageModal.addEventListener('click', ()=>{
+            document.querySelector('body').removeChild(imageModal);
+        })
+        document.querySelector('body').appendChild(imageModal);
+    })
+}
+
+const footerEmail = document.querySelector('.footerEmail');
+footerEmail.addEventListener('click', () => {
+    const copyText = footerEmail.innerText;
+    const createInput = document.createElement("input");
+    createInput.setAttribute("type", "text");
+    footerEmail.appendChild(createInput);
+
+    createInput.value = copyText;
+    createInput.select();
+    document.execCommand('copy');
+    footerEmail.removeChild(createInput);
+    alert('복사가 완료되었습니다.');
+});
