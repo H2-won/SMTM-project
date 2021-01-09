@@ -145,7 +145,7 @@ function enlargeResultImage(resultObject, index){
 
 const footerEmail = document.querySelector('.footerEmail');
 const email = footerEmail.innerText;
-footerEmail.addEventListener('click', ()=>copyText(email, '이메일 복사 완료.'));
+footerEmail.addEventListener('click', ()=>copyText(email, '이메일이 복사 되었습니다.'));
 
 function copyText(copyText, alertText='복사 되었습니다.') {
     const createInput = document.createElement('input');
@@ -168,7 +168,7 @@ function afterPredict(resultContainer){
 
     const linkShareBtn = document.createElement('button');
     linkShareBtn.innerHTML = `<i class="fas fa-link"></i>`;
-    linkShareBtn.addEventListener('click', ()=> copyText('https://resemble.ga/', 'URL 복사 완료'));
+    linkShareBtn.addEventListener('click', ()=> copyText('https://resemble.ga/', '주소(URL) 복사 완료'));
     
     const addthisDiv = document.createElement('div');
     addthisDiv.classList.add('addthis_inline_share_toolbox');
@@ -188,7 +188,7 @@ function afterPredict(resultContainer){
         window.scrollTo(0, 0);
         setTimeout(() => {
             location.reload();
-        }, 1000);
+        }, 800);
     });
     resultContainer.appendChild(retryBtn);    
     
