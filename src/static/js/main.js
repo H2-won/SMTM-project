@@ -175,11 +175,10 @@ function afterPredict(resultContainer){
 
     shareBtns.append(linkShareBtn, addthisDiv);
 
-    setTimeout(() => {
-        const addthisScript = document.createElement('script');
-        addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ff986321bc6dd4b');
-        document.querySelector('body').appendChild(addthisScript);
-    }, 500);
+    const addthisScript = document.createElement('script');
+    addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ff986321bc6dd4b');
+    addthisScript.setAttribute('type', 'text/javascript');
+    document.querySelector('body').appendChild(addthisScript);
 
     const retryBtn = document.createElement('button');
     retryBtn.classList.add('retryBtn');
