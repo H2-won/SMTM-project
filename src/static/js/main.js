@@ -4,7 +4,7 @@ function insertLoader() {
     loader.classList.add('loadingContainer');
     loader.innerHTML = `<div class="loader"><span></span></div>
     <h2>AI가 당신과 닮은 래퍼를 분석 중입니다.</h2>`;
-    document.body.appendChild(loader);
+    document.querySelector('.mainContainer').after(loader);
 }
 
 function removeLoader() {
@@ -29,7 +29,7 @@ function imagePreview(e) {
 
         disableImageInput(imageContainer);
         insertLoader();
-        window.scrollTo(0, imageContainer.offsetTop - 40);
+        window.scrollTo(0, imageContainer.offsetTop - 150);
         document.querySelector('.description').style.opacity = '0';
         imageContainer.appendChild(createImage(e));
 
@@ -85,7 +85,9 @@ async function predict() {
     resultContainer.innerHTML = `<div class='matchContainer'>
     <img src='src/static/img/profile/${resultObjects[0].name}.jpg'>
     <p>당신과 닮은 래퍼는</p>
-    <div><p class='matchName'>'${resultObjects[0].name}'</p><p>입니다.</p></div>
+    <div><p class='matchName'>'${resultObjects[0].name}'</p></div>
+    <div class='matchDescription'>쇼미더머니4 참가자. 1990년 5월 30일생(30세)이며, 밀리언 뭘리 소속이다.
+    <a href='https://namu.wiki/w/${resultObjects[0].name}' target='_blank'>more</a></div>
     </div>`;
     for (let i = 0; i <= 3; i++) {
         resultContainer.appendChild(createResultLabel(resultObjects[i], i));
@@ -159,5 +161,5 @@ footerEmail.addEventListener('click', () => {
     createInput.select();
     document.execCommand('copy');
     footerEmail.removeChild(createInput);
-    alert('복사가 완료되었습니다.');
+    alert('이메일이 복사되었습니다.');
 });
