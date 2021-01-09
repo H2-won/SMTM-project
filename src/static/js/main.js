@@ -2,7 +2,7 @@ function insertLoader() {
 
     const loader = document.createElement('div');
     loader.classList.add('loadingContainer');
-    loader.innerHTML = `<div class="loader"><span></span></div>
+    loader.innerHTML = `<div class='loader'><span></span></div>
     <h2>AI가 당신과 닮은 래퍼를 분석 중입니다.</h2>`;
     document.querySelector('.mainContainer').after(loader);
 }
@@ -78,7 +78,6 @@ async function predict() {
 
     const resultObjects = createResultObject(prediction);
     resultObjects.sort((a, b) => parseFloat(b.probability - a.probability));
-    console.log(resultObjects);
 
     const resultContainer = createResultContainer();
     document.querySelector('.mainContainer').after(resultContainer);
@@ -87,20 +86,14 @@ async function predict() {
     <p>당신과 닮은 래퍼는</p>
     <div><p class='matchName'>'${resultObjects[0].name}'</p></div>
     <div class='matchDescription'>쇼미더머니4 참가자. 1990년 5월 30일생(30세)이며, 밀리언 뭘리 소속이다.
-    <a href='https://namu.wiki/w/${resultObjects[0].name}' target='_blank'>more</a></div>
+    <a href='https://namu.wiki/w/${resultObjects[0].name}' target='_blank'>more<i class="fas fa-external-link-alt"></i></a></div>
     </div>`;
     for (let i = 0; i <= 3; i++) {
         resultContainer.appendChild(createResultLabel(resultObjects[i], i));
         enlargeResultImage(resultObjects[i], i);
     }
 
-    const retryBtn = document.createElement('button');
-    retryBtn.classList.add('retryBtn');
-    retryBtn.innerText = '재시도';
-    retryBtn.addEventListener('click', () => location.reload());
-    resultContainer.appendChild(retryBtn);
-
-    window.scrollTo(0, resultContainer.offsetTop + 50);
+    afterPredict(resultContainer);
 }
 
 function createResultContainer() {
@@ -151,15 +144,51 @@ function enlargeResultImage(resultObject, index){
 }
 
 const footerEmail = document.querySelector('.footerEmail');
-footerEmail.addEventListener('click', () => {
-    const copyText = footerEmail.innerText;
-    const createInput = document.createElement("input");
-    createInput.setAttribute("type", "text");
-    footerEmail.appendChild(createInput);
+const email = footerEmail.innerText;
+footerEmail.addEventListener('click', ()=>copyText(email, '이메일 복사 완료.'));
+
+function copyText(copyText, alertText='복사 되었습니다.') {
+    const createInput = document.createElement('input');
+    createInput.setAttribute('type', 'text');
+    document.body.appendChild(createInput);
 
     createInput.value = copyText;
     createInput.select();
     document.execCommand('copy');
-    footerEmail.removeChild(createInput);
-    alert('이메일이 복사되었습니다.');
-});
+    document.body.removeChild(createInput);
+
+    alert(alertText);
+}
+
+function afterPredict(resultContainer){
+
+    const shareBtns = document.createElement('div');
+    shareBtns.classList.add('shareBtns');
+    resultContainer.appendChild(shareBtns);
+
+    const linkShareBtn = document.createElement('button');
+    linkShareBtn.innerHTML = `<i class="fas fa-link"></i>`;
+    linkShareBtn.addEventListener('click', ()=> copyText('https://resemble.ga/', 'URL 복사 완료'));
+    
+    const addthisDiv = document.createElement('div');
+    addthisDiv.classList.add('addthis_inline_share_toolbox');
+
+    shareBtns.append(linkShareBtn, addthisDiv);
+
+    const addthisScript = document.createElement('script');
+    addthisScript.setAttribute('src', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5ff986321bc6dd4b');
+    document.querySelector('html').appendChild(addthisScript);
+
+    const retryBtn = document.createElement('button');
+    retryBtn.classList.add('retryBtn');
+    retryBtn.innerText = '다시 해보기';
+    retryBtn.addEventListener('click', () => {
+        window.scrollTo(0, 0);
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
+    });
+    resultContainer.appendChild(retryBtn);    
+    
+    window.scrollTo(0, resultContainer.offsetTop -20);
+}

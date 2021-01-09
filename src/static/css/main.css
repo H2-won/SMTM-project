@@ -215,15 +215,22 @@ header {
 .resultContainer .matchContainer .matchDescription {
     font-size: 1.2rem;
     color: var(--grey);
+    margin: 1.5rem;
 }
 
 .resultContainer .matchContainer .matchDescription a{
-    margin: 0.5rem;
+    margin-left: 0.4rem;
     transition: 0.2s ease-in-out;
+    color: var(--grey);
 }
 
 .resultContainer .matchContainer .matchDescription a:hover{
     color: #66C1FA;
+}
+
+.resultContainer .matchContainer .matchDescription a i{
+    margin-left: 0.3rem;
+    font-size: 1rem;
 }
 
 .resultLabel {
@@ -302,7 +309,6 @@ header {
 .retryBtn {
     width: 200px;
     height: 60px;
-    margin-top: 3rem;
     color: var(--gold);
     border-radius: 8px;
     font-size: 1.5rem;
@@ -324,6 +330,34 @@ header {
 
 .retryBtn:focus {
     outline: none;
+}
+
+.shareBtns{
+    margin: 2rem;
+    display: flex;
+}
+
+.shareBtns button{
+    width:32px;
+    height: 32px;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    background: var(--grey);
+    color: white;
+    font-size: 1rem;
+    padding-left: 2px;
+    margin-right: 0.35rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.shareBtns button:hover{
+    transform: translateY(-5px);
+}
+
+.at-share-btn{
+    margin: 0.2rem;
 }
 
 .imageModal {
