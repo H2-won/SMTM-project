@@ -1,5 +1,4 @@
 function insertLoader() {
-
     const loader = document.createElement('div');
     loader.classList.add('loadingContainer');
     loader.innerHTML = `<div class='loader'><span></span></div>
@@ -54,10 +53,9 @@ function disableImageInput(imageContainer) {
     imageInput.disabled = true;
     imageInput.classList.add('disabled');
     imageContainer.classList.add('disabled');
-    // document.querySelector('.imageContainer').style.cursor = 'default';
 }
-// ---------------------------- teachablemachine ---------------------------
 
+// ---------------------------- teachable machine ---------------------------
 let model, maxPredictions;
 
 initTeachablemachine();
@@ -132,15 +130,19 @@ function createResultLabel(resultObject, index) {
 function enlargeResultImage(resultObject, index){
     const resultImage = document.querySelectorAll('.resultLabel img');
     resultImage[index].addEventListener('click', ()=>{
-        const imageModal = document.createElement('div');
+        createImageModal(resultObject.name);
+    })
+}
+
+function createImageModal(rapperName) {
+    const imageModal = document.createElement('div');
         imageModal.classList.add('imageModal');
-        const enlargeImage = `<img src='src/static/img/profile/${resultObject.name}.jpg'>`;
+        const enlargeImage = `<img src='src/static/img/profile/${rapperName}.jpg'>`;
         imageModal.innerHTML = enlargeImage;
         imageModal.addEventListener('click', ()=>{
             document.querySelector('body').removeChild(imageModal);
         })
         document.querySelector('body').appendChild(imageModal);
-    })
 }
 
 const footerEmail = document.querySelector('.footerEmail');
@@ -189,7 +191,18 @@ function afterPredict(resultContainer){
             location.reload();
         }, 800);
     });
-    resultContainer.appendChild(retryBtn);    
+
+    const helpText = document.createElement('p');
+    helpText.classList.add('imageHelp');
+    helpText.innerHTML = `얼굴만 나올수록 정확도가 올라갑니다.`;
+    const imageExample = document.createElement('p');
+    imageExample.innerHTML = `<i class="fas fa-hand-point-right"></i>예시`;
+    imageExample.addEventListener('click', () =>{
+        createImageModal('릴보이');
+    })
+    helpText.appendChild(imageExample);
+
+    resultContainer.append(retryBtn, helpText);
     
     window.scrollTo(0, resultContainer.offsetTop -20);
 }

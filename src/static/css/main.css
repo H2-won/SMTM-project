@@ -22,7 +22,7 @@ header {
     position: relative;
     width: 40vw;
     height: 50vh;
-    margin: 3rem;
+    margin: 3rem 0 2rem;
     background: var(--dark);
     border: 3px solid var(--dark);
     box-shadow: 4px 4px 10px #000000,
@@ -92,13 +92,32 @@ header {
 .description p {
     color: var(--grey);
     font-weight: 400;
-    margin: 12px;
+    text-align: center;
 }
 
-.description p i {
+.imageHelp{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 16px 0 8px 0;
+    color: var(--grey);
+}
+
+.imageHelp i{
     font-size: inherit;
-    padding-top: 2px;
-    margin: 0 8px 0 0;
+    vertical-align: middle;
+    margin: 0;
+    padding-right: 4px;
+}
+
+.imageHelp p{
+    margin-left: 0.4rem;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.imageHelp p:hover{
+    color: #66C1FA;
 }
 
 .loadingContainer {
@@ -318,7 +337,7 @@ header {
         -4px -4px 10px #353535,
         inset -2px -2px 4px #353535,
         inset 2px 2px 4px #000000;
-
+    margin-bottom: 1rem;
     transition: 0.3s all;
 }
 
