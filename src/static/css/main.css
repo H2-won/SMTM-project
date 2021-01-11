@@ -216,8 +216,8 @@ header {
 .resultContainer .matchContainer img {
     max-width: 300px;
     max-height: 300px;
-    min-width: 250px;
-    min-height: 250px;
+    min-width: 230px;
+    min-height: 230px;
 }
 
 .resultContainer .matchContainer p {
@@ -234,11 +234,11 @@ header {
 .resultContainer .matchContainer .matchDescription {
     font-size: 1.2rem;
     color: var(--grey);
-    margin: 1.5rem;
+    /* margin: 1.5rem; */
 }
 
 .resultContainer .matchContainer .matchDescription a {
-    margin-left: 0.4rem;
+    /* margin-left: 0.4rem; */
     transition: 0.2s ease-in-out;
     color: var(--grey);
 }
@@ -248,7 +248,7 @@ header {
 }
 
 .resultContainer .matchContainer .matchDescription a i {
-    margin-left: 0.3rem;
+    margin: 0.3rem;
     font-size: 1rem;
 }
 
@@ -551,6 +551,13 @@ footer i {
         min-width: 4%;
         line-height: 1.45rem;
         margin-left: 0.05rem;
+    }
+
+    .imageModal img {
+        position: relative;
+        z-index: 5;
+        width: 200px;
+        height: 200px;
     }
 
 
