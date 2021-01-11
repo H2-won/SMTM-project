@@ -61,7 +61,7 @@ let model, maxPredictions;
 initTeachablemachine();
 
 async function initTeachablemachine() {
-    const URL = "<https://teachablemachine.withgoogle.com/models/hkhdXFrtT/>";
+    const URL = "https://teachablemachine.withgoogle.com/models/hkhdXFrtT/";
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
 
