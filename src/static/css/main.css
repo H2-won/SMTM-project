@@ -95,7 +95,7 @@ header {
     text-align: center;
 }
 
-.imageHelp{
+.imageHelp {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -103,20 +103,20 @@ header {
     color: var(--grey);
 }
 
-.imageHelp i{
+.imageHelp i {
     font-size: inherit;
     vertical-align: middle;
     margin: 0;
     padding-right: 4px;
 }
 
-.imageHelp p{
+.imageHelp p {
     margin-left: 0.4rem;
     cursor: pointer;
     transition: 0.2s ease-in-out;
 }
 
-.imageHelp p:hover{
+.imageHelp p:hover {
     color: #66C1FA;
 }
 
@@ -237,17 +237,17 @@ header {
     margin: 1.5rem;
 }
 
-.resultContainer .matchContainer .matchDescription a{
+.resultContainer .matchContainer .matchDescription a {
     margin-left: 0.4rem;
     transition: 0.2s ease-in-out;
     color: var(--grey);
 }
 
-.resultContainer .matchContainer .matchDescription a:hover{
+.resultContainer .matchContainer .matchDescription a:hover {
     color: #66C1FA;
 }
 
-.resultContainer .matchContainer .matchDescription a i{
+.resultContainer .matchContainer .matchDescription a i {
     margin-left: 0.3rem;
     font-size: 1rem;
 }
@@ -351,13 +351,13 @@ header {
     outline: none;
 }
 
-.shareBtns{
+.shareBtns {
     margin: 2rem;
     display: flex;
 }
 
-.shareBtns button{
-    width:32px;
+.shareBtns button {
+    width: 32px;
     height: 32px;
     border-radius: 6px;
     outline: none;
@@ -371,11 +371,11 @@ header {
     transition: 0.3s;
 }
 
-.shareBtns button:hover{
+.shareBtns button:hover {
     transform: translateY(-5px);
 }
 
-.at-share-btn{
+.at-share-btn {
     margin: 0.2rem;
 }
 
@@ -437,8 +437,9 @@ footer i {
     font-size: 1rem;
 }
 
-.footerContact, .footerDevelopers {
-    width : auto;
+.footerContact,
+.footerDevelopers {
+    width: auto;
 }
 
 .footerTitle {
@@ -551,6 +552,33 @@ footer i {
         line-height: 1.45rem;
         margin-left: 0.05rem;
     }
+
+
+    .imageHelp {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 16px 0 8px 0;
+        color: var(--grey);
+    }
+
+    .imageHelp i {
+        font-size: inherit;
+        vertical-align: middle;
+        margin: 0;
+        padding-right: 4px;
+    }
+
+    .imageHelp p {
+        margin-left: 0.4rem;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+    }
+
+    .imageHelp p:hover {
+        color: #66C1FA;
+    }
+    
 }
 
 @media screen and (max-width: 768px) {
