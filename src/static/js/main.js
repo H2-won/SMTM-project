@@ -31,11 +31,11 @@ function imagePreview(e) {
         window.scrollTo(0, imageContainer.offsetTop - 150);
         document.querySelector('.description').style.opacity = '0';
         imageContainer.appendChild(createImage(e));
-
+        
         setTimeout(() => {
             removeLoader();
             predict();
-        }, 1500);
+        }, 1000);
 
     };
     fileReader.readAsDataURL(file);
@@ -61,7 +61,7 @@ let model, maxPredictions;
 initTeachablemachine();
 
 async function initTeachablemachine() {
-    const URL = "https://teachablemachine.withgoogle.com/models/iZhv2fYu3/";
+    const URL = "https://teachablemachine.withgoogle.com/models/hkhdXFrtT/";
     const modelURL = URL + "model.json";
     const metadataURL = URL + "metadata.json";
 
@@ -83,7 +83,7 @@ async function predict() {
     <img src='src/static/img/profile/${resultObjects[0].name}.jpg'>
     <p>당신과 닮은 래퍼는</p>
     <div><p class='matchName'>'${resultObjects[0].name}'</p></div>
-    <div class='matchDescription'>쇼미더머니4 참가자. 1990년 5월 30일생(30세)이며, 밀리언 뭘리 소속이다.
+    <div class='matchDescription'>
     <a href='https://namu.wiki/w/${resultObjects[0].name}' target='_blank'>more<i class="fas fa-external-link-alt"></i></a></div>
     </div>`;
     for (let i = 0; i <= 3; i++) {
