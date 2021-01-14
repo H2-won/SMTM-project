@@ -327,16 +327,18 @@ header {
     width: 5%;
 }
 
-.helpCrop{
+.helpCrop {
     margin-bottom: 1rem;
     color: var(--grey);
 }
-.helpCrop i{
+
+.helpCrop i {
     margin: 0 0.5rem;
 }
 
 .retryBtn,
-.cropBtn, .rotateBtn {
+.cropBtn,
+.rotateBtn {
     width: 200px;
     height: 60px;
     color: var(--gold);
@@ -366,7 +368,7 @@ header {
     outline: none;
 }
 
-.rotateBtn{
+.rotateBtn {
     width: 60px;
     border: 3px solid var(--grey);
     color: var(--grey);
@@ -618,6 +620,54 @@ footer i {
 
     .imageHelp p:hover {
         color: #66C1FA;
+    }
+
+    .retryBtn,
+    .cropBtn,
+    .rotateBtn {
+        width: 200px;
+        height: 60px;
+        color: var(--gold);
+        border-radius: 8px;
+        font-size: 1.5rem;
+        border: 3px solid var(--gold);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.05, var(--dark)));
+        box-shadow: 4px 4px 10px #000000,
+            -4px -4px 10px #353535,
+            inset -2px -2px 4px #353535,
+            inset 2px 2px 4px #000000;
+        margin-bottom: 1rem;
+        transition: 0.3s all;
+    }
+
+    .retryBtn:hover,
+    .cropBtn:hover,
+    .rotateBtn:hover {
+        color: #66C1FA;
+        cursor: pointer;
+        border: 3px solid #66C1FA;
+    }
+
+    .retryBtn:focus,
+    .cropBtn:focus,
+    .rotateBtn:focus {
+        outline: none;
+    }
+
+    .rotateBtn {
+        width: 60px;
+        border: 3px solid var(--grey);
+        color: var(--grey);
+        margin-right: 1rem;
+    }
+
+    .cropper-bg {
+        background-image: none;
+    }
+
+    .cropper-point,
+    .cropper-line {
+        background-color: var(--gold);
     }
 
 }
