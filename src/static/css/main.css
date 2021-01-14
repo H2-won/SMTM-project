@@ -76,7 +76,6 @@ header {
 }
 
 .disabled:hover {
-    cursor: default;
     border: 3px solid var(--dark);
 }
 
@@ -234,11 +233,9 @@ header {
 .resultContainer .matchContainer .matchDescription {
     font-size: 1.2rem;
     color: var(--grey);
-    /* margin: 1.5rem; */
 }
 
 .resultContainer .matchContainer .matchDescription a {
-    /* margin-left: 0.4rem; */
     transition: 0.2s ease-in-out;
     color: var(--grey);
 }
@@ -325,12 +322,13 @@ header {
     width: 5%;
 }
 
-.probability5{
+.probability5 {
     background: #FAB900;
     width: 5%;
 }
 
-.retryBtn {
+.retryBtn,
+.cropBtn {
     width: 200px;
     height: 60px;
     color: var(--gold);
@@ -346,13 +344,15 @@ header {
     transition: 0.3s all;
 }
 
-.retryBtn:hover {
+.retryBtn:hover,
+.cropBtn:hover {
     color: #66C1FA;
     cursor: pointer;
     border: 3px solid #66C1FA;
 }
 
-.retryBtn:focus {
+.retryBtn:focus,
+.cropBtn:focus {
     outline: none;
 }
 
@@ -469,11 +469,19 @@ footer i {
     color: #66C1FA;
 }
 
-.kakaoAd{
+.kakaoAd {
     width: 320px;
     margin: 4rem auto;
 }
 
+.cropper-bg {
+    background-image: none;
+}
+
+.cropper-point,
+.cropper-line {
+    background-color: var(--gold);
+}
 
 /* -------------------------- media query ------------------------ */
 @media screen and (max-width: 480px) {
@@ -594,7 +602,7 @@ footer i {
     .imageHelp p:hover {
         color: #66C1FA;
     }
-    
+
 }
 
 @media screen and (max-width: 768px) {

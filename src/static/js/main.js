@@ -26,16 +26,13 @@ function imagePreview(e) {
     var fileReader = new FileReader();
     fileReader.onload = function (e) {
 
-        disableImageInput(imageContainer);
-        insertLoader();
         window.scrollTo(0, imageContainer.offsetTop - 150);
-        document.querySelector('.description').style.opacity = '0';
+        imageContainer.classList.add('disabled');
+        imageContainer.removeChild(document.querySelector('.description'));
+        imageContainer.removeChild(document.querySelector('.imageInput'));
         imageContainer.appendChild(createImage(e));
-        
-        setTimeout(() => {
-            removeLoader();
-            predict();
-        }, 1000);
+
+        setRelatedCropper();
 
     };
     fileReader.readAsDataURL(file);
@@ -48,11 +45,43 @@ function createImage(e) {
     return img;
 }
 
-function disableImageInput(imageContainer) {
-    const imageInput = document.querySelector('.imageInput');
-    imageInput.disabled = true;
-    imageInput.classList.add('disabled');
-    imageContainer.classList.add('disabled');
+function setRelatedCropper() {
+    const mainContainer = document.querySelector('.mainContainer');
+    const imageContainer = document.querySelector('.imageContainer');
+    const image = document.querySelector('.imageContainer img');
+    const cropper = new Cropper(image, {
+        viewMode: 1,
+        aspectRatio: 1 / 1,
+        dragMode: false,
+        rotatable: false,
+        zoomOnWheel: false,
+        autoCrop: true,
+        crop() {}
+    });
+
+    const cropBtn = document.createElement('button');
+    cropBtn.innerText = '분석하기';
+    cropBtn.classList.add('cropBtn');
+    cropBtn.addEventListener('click', () => {
+        cropImage(cropper, cropBtn, mainContainer, imageContainer);
+        insertLoader();
+        setTimeout(() => {
+            removeLoader();
+            predict();
+        }, 1000);
+    })
+    mainContainer.appendChild(cropBtn);
+}
+
+function cropImage(cropper, cropBtn, mainContainer, imageContainer) {
+    const croppedCanvas = cropper.getCroppedCanvas();
+    imageContainer.removeChild(document.querySelector('.cropper-container'));
+    mainContainer.removeChild(cropBtn);
+
+    const croppedImg = document.createElement('img');
+    croppedImg.classList.add('croppedUserImg');
+    croppedImg.setAttribute('src', croppedCanvas.toDataURL("image/jpg"));
+    imageContainer.appendChild(croppedImg);
 }
 
 // ---------------------------- teachable machine ---------------------------
@@ -71,7 +100,7 @@ async function initTeachablemachine() {
 
 async function predict() {
 
-    const userImage = document.querySelector('.userImage');
+    const userImage = document.querySelector('.croppedUserImg');
     const prediction = await model.predict(userImage, false);
 
     const resultObjects = createResultObject(prediction);
@@ -86,10 +115,10 @@ async function predict() {
     <div class='matchDescription'>
     <a href='https://namu.wiki/w/${resultObjects[0].name}' target='_blank'>more<i class="fas fa-external-link-alt"></i></a></div>
     </div>`;
-    
+
     for (let i = 0; i < 5; i++) {
         const createdLabel = createResultLabel(resultObjects[i], i);
-        if(!createdLabel) continue;
+        if (!createdLabel) continue;
         resultContainer.appendChild(createdLabel);
         enlargeResultImage(resultObjects[i], i);
     }
@@ -119,8 +148,8 @@ function createResultObject(prediction) {
 function createResultLabel(resultObject, index) {
 
     const resultProbability = Math.floor(resultObject.probability * 100);
-    
-    if(index > 2 && resultProbability < 2) return null;
+
+    if (index > 2 && resultProbability < 2) return null;
 
     resultLabel = document.createElement('div');
     resultLabel.classList.add('resultLabel');
@@ -134,29 +163,29 @@ function createResultLabel(resultObject, index) {
     return resultLabel;
 }
 
-function enlargeResultImage(resultObject, index){
+function enlargeResultImage(resultObject, index) {
     const resultImage = document.querySelectorAll('.resultLabel img');
-    resultImage[index].addEventListener('click', ()=>{
+    resultImage[index].addEventListener('click', () => {
         createImageModal(resultObject.name);
     })
 }
 
 function createImageModal(rapperName) {
     const imageModal = document.createElement('div');
-        imageModal.classList.add('imageModal');
-        const enlargeImage = `<img src='src/static/img/profile/${rapperName}.jpg'>`;
-        imageModal.innerHTML = enlargeImage;
-        imageModal.addEventListener('click', ()=>{
-            document.querySelector('body').removeChild(imageModal);
-        })
-        document.querySelector('body').appendChild(imageModal);
+    imageModal.classList.add('imageModal');
+    const enlargeImage = `<img src='src/static/img/profile/${rapperName}.jpg'>`;
+    imageModal.innerHTML = enlargeImage;
+    imageModal.addEventListener('click', () => {
+        document.querySelector('body').removeChild(imageModal);
+    })
+    document.querySelector('body').appendChild(imageModal);
 }
 
 const footerEmail = document.querySelector('.footerEmail');
 const email = footerEmail.innerText;
-footerEmail.addEventListener('click', ()=>copyText(email, '이메일이 복사 되었습니다.'));
+footerEmail.addEventListener('click', () => copyText(email, '이메일이 복사 되었습니다.'));
 
-function copyText(copyText, alertText='복사 되었습니다.') {
+function copyText(copyText, alertText = '복사 되었습니다.') {
     const createInput = document.createElement('input');
     createInput.setAttribute('type', 'text');
     document.body.appendChild(createInput);
@@ -169,7 +198,7 @@ function copyText(copyText, alertText='복사 되었습니다.') {
     alert(alertText);
 }
 
-function afterPredict(resultContainer){
+function afterPredict(resultContainer) {
 
     const shareBtns = document.createElement('div');
     shareBtns.classList.add('shareBtns');
@@ -177,8 +206,8 @@ function afterPredict(resultContainer){
 
     const linkShareBtn = document.createElement('button');
     linkShareBtn.innerHTML = `<i class="fas fa-link"></i>`;
-    linkShareBtn.addEventListener('click', ()=> copyText('https://resemble.ga/', '주소(URL) 복사 완료'));
-    
+    linkShareBtn.addEventListener('click', () => copyText('https://resemble.ga/', '주소(URL) 복사 완료'));
+
     const addthisDiv = document.createElement('div');
     addthisDiv.classList.add('addthis_inline_share_toolbox');
 
@@ -204,12 +233,12 @@ function afterPredict(resultContainer){
     helpText.innerHTML = `얼굴만 나올수록 정확도가 올라갑니다.`;
     const imageExample = document.createElement('p');
     imageExample.innerHTML = `<i class="fas fa-hand-point-right"></i>예시`;
-    imageExample.addEventListener('click', () =>{
+    imageExample.addEventListener('click', () => {
         createImageModal('릴보이');
     })
     helpText.appendChild(imageExample);
 
     resultContainer.append(retryBtn, helpText);
-    
-    window.scrollTo(0, resultContainer.offsetTop -20);
+
+    window.scrollTo(0, resultContainer.offsetTop - 20);
 }
