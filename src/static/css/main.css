@@ -503,6 +503,7 @@ footer i {
 .cropper-point,
 .cropper-line {
     background-color: var(--gold);
+    opacity: 0.4;
 }
 
 /* -------------------------- media query ------------------------ */
