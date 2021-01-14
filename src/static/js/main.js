@@ -86,8 +86,11 @@ async function predict() {
     <div class='matchDescription'>
     <a href='https://namu.wiki/w/${resultObjects[0].name}' target='_blank'>more<i class="fas fa-external-link-alt"></i></a></div>
     </div>`;
-    for (let i = 0; i <= 3; i++) {
-        resultContainer.appendChild(createResultLabel(resultObjects[i], i));
+    
+    for (let i = 0; i < 5; i++) {
+        const createdLabel = createResultLabel(resultObjects[i], i);
+        if(!createdLabel) continue;
+        resultContainer.appendChild(createdLabel);
         enlargeResultImage(resultObjects[i], i);
     }
 
@@ -114,7 +117,11 @@ function createResultObject(prediction) {
 }
 
 function createResultLabel(resultObject, index) {
+
     const resultProbability = Math.floor(resultObject.probability * 100);
+    
+    if(index > 2 && resultProbability < 2) return null;
+
     resultLabel = document.createElement('div');
     resultLabel.classList.add('resultLabel');
     resultLabel.innerHTML = `<img src='src/static/img/profile/${resultObject.name}.jpg'>

@@ -321,7 +321,12 @@ header {
 }
 
 .probability4 {
-    background: #F9A21A;
+    background: #fd8f00;
+    width: 5%;
+}
+
+.probability5{
+    background: #FAB900;
     width: 5%;
 }
 
