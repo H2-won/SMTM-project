@@ -327,6 +327,14 @@ header {
     width: 5%;
 }
 
+.helpCrop{
+    margin-bottom: 1rem;
+    color: var(--grey);
+}
+.helpCrop i{
+    margin: 0 0.5rem;
+}
+
 .retryBtn,
 .cropBtn {
     width: 200px;

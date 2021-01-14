@@ -59,24 +59,29 @@ function setRelatedCropper() {
         crop() {}
     });
 
+    const helpCrop = document.createElement('p');
+    helpCrop.classList.add('helpCrop');
+    helpCrop.innerHTML = '<i class="fas fa-long-arrow-alt-down"></i>편집 박스 조절 후 클릭<i class="fas fa-long-arrow-alt-down"></i>'
+
     const cropBtn = document.createElement('button');
     cropBtn.innerText = '분석하기';
     cropBtn.classList.add('cropBtn');
     cropBtn.addEventListener('click', () => {
-        cropImage(cropper, cropBtn, mainContainer, imageContainer);
+        cropImage(cropper, cropBtn, helpCrop, mainContainer, imageContainer);
         insertLoader();
         setTimeout(() => {
             removeLoader();
             predict();
         }, 1000);
     })
-    mainContainer.appendChild(cropBtn);
+    mainContainer.append(helpCrop, cropBtn);
 }
 
-function cropImage(cropper, cropBtn, mainContainer, imageContainer) {
+function cropImage(cropper, cropBtn, helpCrop, mainContainer, imageContainer) {
     const croppedCanvas = cropper.getCroppedCanvas();
     imageContainer.removeChild(document.querySelector('.cropper-container'));
     mainContainer.removeChild(cropBtn);
+    mainContainer.removeChild(helpCrop);
 
     const croppedImg = document.createElement('img');
     croppedImg.classList.add('croppedUserImg');
