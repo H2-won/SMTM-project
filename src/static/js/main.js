@@ -234,7 +234,7 @@ function afterPredict(resultContainer) {
     const imageExample = document.createElement('p');
     imageExample.innerHTML = `<i class="fas fa-hand-point-right"></i>예시`;
     imageExample.addEventListener('click', () => {
-        createImageModal('릴보이');
+        createImageModal('기리보이_example');
     })
     helpText.appendChild(imageExample);
 
