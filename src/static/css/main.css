@@ -336,7 +336,7 @@ header {
 }
 
 .retryBtn,
-.cropBtn {
+.cropBtn, .rotateBtn {
     width: 200px;
     height: 60px;
     color: var(--gold);
@@ -353,15 +353,24 @@ header {
 }
 
 .retryBtn:hover,
-.cropBtn:hover {
+.cropBtn:hover,
+.rotateBtn:hover {
     color: #66C1FA;
     cursor: pointer;
     border: 3px solid #66C1FA;
 }
 
 .retryBtn:focus,
-.cropBtn:focus {
+.cropBtn:focus,
+.rotateBtn:focus {
     outline: none;
+}
+
+.rotateBtn{
+    width: 60px;
+    border: 3px solid var(--grey);
+    color: var(--grey);
+    margin-right: 1rem;
 }
 
 .shareBtns {

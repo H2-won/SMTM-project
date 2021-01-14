@@ -53,7 +53,7 @@ function setRelatedCropper() {
         viewMode: 1,
         aspectRatio: 1 / 1,
         dragMode: false,
-        rotatable: false,
+        zoomOnTouch: false,
         zoomOnWheel: false,
         autoCrop: true,
         crop() {}
@@ -61,27 +61,37 @@ function setRelatedCropper() {
 
     const helpCrop = document.createElement('p');
     helpCrop.classList.add('helpCrop');
-    helpCrop.innerHTML = '<i class="fas fa-long-arrow-alt-down"></i>편집 박스 조절 후 클릭<i class="fas fa-long-arrow-alt-down"></i>'
+    helpCrop.innerHTML = '<i class="fas fa-long-arrow-alt-down"></i>회전 / 편집 박스 조절 후 분석<i class="fas fa-long-arrow-alt-down"></i>';
+
+    const cropBtnDiv = document.createElement('div');
+    cropBtnDiv.classList.add('cropBtnDiv');
+
+    const rotateBtn = document.createElement('button');
+    rotateBtn.classList.add('rotateBtn');
+    rotateBtn.innerHTML = '<i class="fas fa-redo"></i>';
+    rotateBtn.addEventListener('click', () => cropper.rotate(90));
 
     const cropBtn = document.createElement('button');
     cropBtn.innerText = '분석하기';
     cropBtn.classList.add('cropBtn');
     cropBtn.addEventListener('click', () => {
-        cropImage(cropper, cropBtn, helpCrop, mainContainer, imageContainer);
+        cropImage(cropper, cropBtnDiv, helpCrop, mainContainer, imageContainer);
         insertLoader();
         setTimeout(() => {
             removeLoader();
             predict();
         }, 1000);
-    })
-    mainContainer.append(helpCrop, cropBtn);
+    });
+    
+    cropBtnDiv.append(rotateBtn, cropBtn);
+    mainContainer.append(helpCrop, cropBtnDiv);
 }
 
-function cropImage(cropper, cropBtn, helpCrop, mainContainer, imageContainer) {
+function cropImage(cropper, cropBtnDiv, helpCrop, mainContainer, imageContainer) {
     const croppedCanvas = cropper.getCroppedCanvas();
     imageContainer.removeChild(document.querySelector('.cropper-container'));
-    mainContainer.removeChild(cropBtn);
     mainContainer.removeChild(helpCrop);
+    mainContainer.removeChild(cropBtnDiv);
 
     const croppedImg = document.createElement('img');
     croppedImg.classList.add('croppedUserImg');
