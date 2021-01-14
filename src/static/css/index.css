@@ -115,6 +115,8 @@ section img:nth-child(8) {
 section img:nth-child(9) {
     top: 78%;
     left: 62%;
+    filter: gray;
+    -webkit-filter: grayscale(100%);
 }
 
 section img:nth-child(10) {
