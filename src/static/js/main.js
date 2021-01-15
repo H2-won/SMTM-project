@@ -120,6 +120,7 @@ async function predict() {
 
     const resultObjects = createResultObject(prediction);
     resultObjects.sort((a, b) => parseFloat(b.probability - a.probability));
+    const rapperName = namuwikiExceptionHandling(resultObjects[0].name);
 
     const resultContainer = createResultContainer();
     document.querySelector('.mainContainer').after(resultContainer);
@@ -128,7 +129,7 @@ async function predict() {
     <p>당신과 닮은 래퍼는</p>
     <div><p class='matchName'>'${resultObjects[0].name}'</p></div>
     <div class='matchDescription'>
-    <a href='https://namu.wiki/w/${resultObjects[0].name}' target='_blank'>more<i class="fas fa-external-link-alt"></i></a></div>
+    <a href='https://namu.wiki/w/${rapperName}' target='_blank'>more<i class="fas fa-external-link-alt"></i></a></div>
     </div>`;
 
     for (let i = 0; i < 5; i++) {
@@ -256,4 +257,27 @@ function afterPredict(resultContainer) {
     resultContainer.append(retryBtn, helpText);
 
     window.scrollTo(0, resultContainer.offsetTop - 20);
+}
+
+function namuwikiExceptionHandling(name){
+    if(name === 'G2') return '지투(래퍼)';
+    else if(name === '길') return '길(가수)';
+    else if(name === '노엘') return 'NO:EL';
+    else if(name === '루피') return '루피(래퍼)';
+    else if(name === '바스코') return 'BILL STAX';
+    else if(name === '션') return '션(지누션)';
+    else if(name === '아웃사이더') return '아웃사이더(래퍼)';
+    else if(name === '이노베이터') return '이노베이터(래퍼)';
+    else if(name === '행주') return 'HANGZOO';
+    else if(name === '개코') return '개코(래퍼)';
+    else if(name === '규정') return '박규정';
+    else if(name === '그레이') return 'GRAY';
+    else if(name === '도끼') return 'dok2';
+    else if(name === '디보') return 'Dbo';
+    else if(name === '디아크') return 'D.ark';
+    else if(name === '면도') return 'myundo';
+    else if(name === '비지') return 'Bizzy';
+    else if(name === '원') return '원(래퍼)';
+    else if(name === '치타') return '치타(가수)';
+    else if(name === '쿠시') return 'KUSH';
 }
