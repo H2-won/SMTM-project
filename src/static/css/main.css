@@ -493,7 +493,14 @@ footer i {
 
 .kakaoAd {
     width: 320px;
-    margin: 4rem auto;
+    margin: 3.5rem auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kakao_ad_area{
+    margin: 1rem;
 }
 
 .cropper-bg {
