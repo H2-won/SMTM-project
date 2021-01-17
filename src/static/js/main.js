@@ -121,15 +121,18 @@ async function predict() {
     const resultObjects = createResultObject(prediction);
     resultObjects.sort((a, b) => parseFloat(b.probability - a.probability));
     const rapperName = namuwikiExceptionHandling(resultObjects[0].name);
+    const rapperDescription = getRapperDescriptionAPI(resultObjects[0].name);
 
     const resultContainer = createResultContainer();
-    document.querySelector('.mainContainer').after(resultContainer);
+    document.querySelector('.kakaoMiddle').after(resultContainer);
     resultContainer.innerHTML = `<div class='matchContainer'>
     <img src='src/static/img/profile/${resultObjects[0].name}.jpg'>
     <p>당신과 닮은 래퍼는</p>
     <div><p class='matchName'>'${resultObjects[0].name}'</p></div>
     <div class='matchDescription'>
-    <a href='https://namu.wiki/w/${rapperName}' target='_blank'>more<i class="fas fa-external-link-alt"></i></a></div>
+    ${rapperDescription}
+    <a href='https://namu.wiki/w/${rapperName}' target='_blank'>more<i class="fas fa-external-link-alt"></i></a>
+    </div>
     </div>`;
 
     for (let i = 0; i < 5; i++) {
@@ -280,4 +283,29 @@ function namuwikiExceptionHandling(name){
     else if(name === '원') return '원(래퍼)';
     else if(name === '치타') return '치타(가수)';
     else if(name === '쿠시') return 'KUSH';
+}
+
+function getRapperDescriptionAPI(rapperName) {
+    const url = 'https://resemble.ga/api/description';
+    fetch(url, {
+            method: 'POST',
+            body: JSON.stringify(rapperName),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(res => {
+            if(res.status == 200) return res;
+            else return '';
+        })
+        .catch(err => errorHandler(err));
+}
+
+function errorHandler(error) {
+    if (!error || !(error.res)) {
+        console.log(error);
+        alert('에러가 발생하였습니다. 다시 시도해주세요.');
+    }
 }
