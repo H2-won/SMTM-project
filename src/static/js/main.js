@@ -121,7 +121,7 @@ async function predict() {
     const resultObjects = createResultObject(prediction);
     resultObjects.sort((a, b) => parseFloat(b.probability - a.probability));
     const rapperName = namuwikiExceptionHandling(resultObjects[0].name);
-    const rapperDescription = getRapperDescriptionAPI(resultObjects[0].name);
+    const rapperDescription = getRapperDescription(resultObjects[0].name);
 
     const resultContainer = createResultContainer();
     document.querySelector('.kakaoMiddle').after(resultContainer);
@@ -285,26 +285,116 @@ function namuwikiExceptionHandling(name){
     else if(name === '쿠시') return 'KUSH';
 }
 
-function getRapperDescriptionAPI(rapperName) {
-    const url = 'https://resemble.ga/api/description';
-    fetch(url, {
-            method: 'POST',
-            body: JSON.stringify(rapperName),
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        })
-        .then(res => res.json())
-        .then(res => {
-            if(res.status == 200) return res;
-            else return '';
-        })
-        .catch(err => errorHandler(err));
-}
+function getRapperDescription(name){
 
-function errorHandler(error) {
-    if (!error || !(error.res)) {
-        console.log(error);
-    }
+    if(name == 'ph-1') return '쇼미더머니 시즌 7 참가자. 출생연도는 1989.07.23 이며, H1GHR MUSIC 소속이다.';
+    else if(name == '개코') return '쇼미더머니 시즌 9 프로듀서. 출생연도는 1981.01.14 이며, 아메바컬쳐 소속이다.';
+    else if(name == '규정') return '쇼미더머니 시즌 9 프로듀서. 출생연도는 1994.12.12 이며, H1GHR MUSIC 소속이다.';
+    else if(name == '그레이') return '쇼미더머니 시즌 5 프로듀서. 출생연도는 1986.12.08 이며, AOMG 소속이다.';
+    else if(name == '기리보이') return '쇼미더머니 시즌 3 참가자/시즌 7,8,9 프로듀서. 출생연도는 1991.01.24 이며, Just Music 소속이다.';
+    else if(name == '더콰이엇') return '쇼미더머니 시즌 3,4,5 프로듀서. 출생연도는 1985.01.29 이며, Daytona 소속이다.';
+    else if(name == '도끼') return '쇼미더머니 시즌 3,5,6 프로듀서. 출생연도는 1990.03.28 이며, Yellowmoney records 소속이다.';
+    else if(name == '디보') return '쇼미더머니 시즌 3,7,8 참가자. 출생연도는 1992.07.18 이며, FPL 소속이다.';
+    else if(name == '디아크') return '쇼미더머니 시즌 7,9 참가자. 출생연도는 2004.07.15 이며, P Nation 소속이다.';
+    else if(name == '딘딘') return '쇼미더머니 시즌 2 참가자. 출생연도는 1991.11.20 이며, D&D 소속이다.';
+    else if(name == '딥플로우') return '쇼미더머니 시즌 7 프로듀서. 출생연도는 1984.08.02 이며, VMC 소속이다.';
+    else if(name == '마미손') return '쇼미더머니 시즌 7 참가자. 출생연도는 베일에 쌓여있으며, 뷰티풀 노이즈 소속이다.';
+    else if(name == '마이크로닷') return '쇼미더머니 시즌 4,5,6 참가자. 출생연도는 1993.11.21 이며, 무소속이다.';
+    else if(name == '매드클라운') return '쇼미더머니 시즌 5,8 프로듀서. 출생연도는 1985.03.25 이며, 뷰티풀 노이즈 소속이다.';
+    else if(name == '맥대디') return '쇼미더머니 시즌 7,8,9 참가자. 출생연도는 1990.09.04 이며, 그랜드라인 소속이다.';
+    else if(name == '머쉬베놈') return '쇼미더머니 시즌 9 준우승자. 출생연도는 1994.06.20 이며, 무소속이다.';
+    else if(name == '면도') return '쇼미더머니 시즌 4,5,6 참가자. 출생연도는 1994.08.04 이며, B.A.D. 소속이다.';
+    else if(name == '보이콜드') return '쇼미더머니 시즌 8 프로듀서. 출생연도는 1995.06.21 이며, 소니 뮤직 소속이다.';
+    else if(name == '블랙나인') return '쇼미더머니 시즌 6,7 참가자. 출생연도는 1991.04.08 이며, B.A.D. 소속이다.';
+    else if(name == '블랙넛') return '쇼미더머니 시즌 4 참가자. 출생연도는 1989.01.01 이며, Just Music 소속이다.';
+    else if(name == '비와이') return '쇼미더머니 시즌 5 우승자 / 시즌 9 프로듀서. 출생연도는 1993.06.15 이며, Dejavu 소속이다.';
+    else if(name == '비지') return '쇼미더머니 시즌 6 프로듀서. 출생연도는 1980.02.29 이며, 필굿뮤직 소속이다.';
+    else if(name == '보이비') return '쇼미더머니 시즌 5,6 참가자. 출생연도는 1986.09.04 이며, 리듬파워 소속이다.';
+    else if(name == '수퍼비') return '쇼미더머니 시즌 4,5,7 참가자. 출생연도는 1994.05.02 이며, Y&R 소속이다.';
+    else if(name == '스내키챈') return '쇼미더머니 시즌 3,5,7 참가자. 출생연도는 공식적으로 나와있지 않으며, 다이너스티뮤직 소속이다.';
+    else if(name == '스월비') return '쇼미더머니 시즌 7,8 참가자. 출생연도는 2001.12.25 이며, 하이라이트 레코즈 소속이다.';
+    else if(name == '스윙스') return '쇼미더머니 시즌 2,9 참가자 / 시즌 7,8 프로듀서. 출생연도는 1986.10.14 이며, IMJMWDP 소속이다.';
+    else if(name == '스카이민혁') return '쇼미더머니 시즌 9 참가자. 출생연도는 1998.12.05 이며, 그랜드라인 소속이다.';
+    else if(name == '슬리피') return '쇼미더머니 시즌 6 참가자. 출생연도는 1984.02.21 이며, PVO 소속이다.';
+    else if(name == '오왼 오바도즈') return '쇼미더머니 시즌 3,4,7,8,9 참가자. 출생연도는 1991.10.13 이며, MKIT RAIN 소속이다.';
+    else if(name == '올티') return '쇼미더머니 시즌 3,6,8 참가자. 출생연도는 1996.01.02 이며, ADV 소속이다.';
+    else if(name == '우디고차일드') return '쇼미더머니 시즌 6,8 참가자. 출생연도는 1996.04.02 이며, H1GHR MUSIC 소속이다.';
+    else if(name == '우원재') return '쇼미더머니 시즌 6 참가자. 출생연도는 1996.12.23 이며, AOMG 소속이다.';
+    else if(name == '우태운') return '쇼미더머니 시즌 4,5 참가자. 출생연도는 1990.05.11 이며, 밀리언 마켓 소속이다.';
+    else if(name == '원') return '쇼미더머니 시즌 4,5 참가자. 출생연도는 1994.03.29 이며, PRIVATE ONLY 소속이다.';
+    else if(name == '자이언티') return '쇼미더머니 시즌 5,9 프로듀서. 출생연도는 1989.04.13 이며, 더블랙레이블 소속이다.';
+    else if(name == '저스디스') return '쇼미더머니 시즌 9 프로듀서. 출생연도는 1991.05.07 이며, Indigo Music 소속이다.';
+    else if(name == '제네더질라') return '쇼미더머니 시즌 7,8 참가자. 출생연도는 1994.07.07 이며, AMBITION MUSIK 소속이다.';
+    else if(name == '제이켠') return '쇼미더머니 시즌 2,5,6,8,9 참가자. 출생연도는 1985.01.11 이며, GRVVONLY 소속이다.';
+    else if(name == '조우찬') return '쇼미더머니 시즌 6 참가자. 출생연도는 2005.01.20 이며, 무소속이다.';
+    else if(name == '졸리브이') return '쇼미더머니 시즌 3 참가자. 출생연도는 1989.04.16 이며, 무소속이다.';
+    else if(name == '최자') return '쇼미더머니 시즌 9 프로듀서. 출생연도는 1980.03.17 이며, 아메바컬쳐 소속이다.';
+    else if(name == '치타') return '쇼미더머니 시즌 1 참가자. 출생연도는 1990.05.25 이며, 크다엔터테인먼트 소속이다.';
+    else if(name == '칠린호미') return '쇼미더머니 시즌 7,8,9 참가자. 출생연도는 1999.09.03 이며, NFL 소속이다.';
+    else if(name == '코드쿤스트') return '쇼미더머니 시즌 7,9 프로듀서. 출생연도는 1989.12.18 이며, AOMG 소속이다.';
+    else if(name == '쿠기') return '쇼미더머니 시즌 7 참가자. 출생연도는 1994.01.23 이며, 밀리언 마켓 소속이다.';
+    else if(name == '쿠시') return '쇼미더머니 시즌 5 프로듀서. 출생연도는 1984.07.28 이며, 하트엔터테인먼트 소속이다.';
+    else if(name == '타쿠와') return '쇼미더머니 시즌 8,9 참가자. 출생연도는 1995.08.11 이며, 무소속이다.';
+    else if(name == '팔로알토') return '쇼미더머니 시즌 4,7,9 프로듀서. 출생연도는 1984.01.24 이며, 하이라이트 레코즈 소속이다.';
+    else if(name == '플로우식') return '쇼미더머니 시즌 5 참가자. 출생연도는 1985.04.05 이며, 사우스 퍼 레코드 소속이다.';
+    else if(name == '피타입') return '쇼미더머니 시즌 4,6 참가자. 출생연도는 1979.12.16 이며, 불한당 소속이다.';
+    else if(name == '한해') return '쇼미더머니 시즌 4,6 참가자. 출생연도는 1990.04.07 이며, 브랜뉴 뮤직 소속이다.';
+    else if(name == '해쉬스완') return '쇼미더머니 시즌 5,6 참가자. 출생연도는 1995.03.12 이며, AMBITION MUSIK 소속이다.';
+    else if(name == 'B.I') return '쇼미더머니 시즌 3 참가자. 출생연도는 1996.10.22 이며, 131 레이블 소속이다.';
+    else if(name == 'BOBBY') return '쇼미더머니 시즌 3 우승자. 출생연도는 1995.12.21 이며, YG엔터테인먼트 소속이다.';
+    else if(name == 'DEAN') return '쇼미더머니 시즌 6 프로듀서. 출생연도는 1992.11.10 이며, UMG 소속이다.';
+    else if(name == 'EK') return '쇼미더머니 시즌 7,8 참가자. 출생연도는 1992.09.05 이며, 무소속이다.';
+    else if(name == 'G2') return '쇼미더머니 시즌 5 참가자. 출생연도는 1992.05.01 이며, 무소속이다.';
+    else if(name == 'ODEE') return '쇼미더머니 시즌 3,6,7 참가자. 출생연도는 1992.08.25 이며, VMC 소속이다.';
+    else if(name == '길') return '쇼미더머니 시즌 5 프로듀서. 출생연도는 1978.02.15 이며, 매직 맨션 소속이다.';
+    else if(name == '김효은') return '쇼미더머니 시즌 3,5,6,7 참가자. 출생연도는 1993.07.29 이며, AMBITION MUSIK 소속이다.';
+    else if(name == '나플라') return '쇼미더머니 시즌 7 우승자. 출생연도는 1992.02.28 이며, GROOVL1N 소속이다.';
+    else if(name == '넉살') return '쇼미더머니 시즌 2 참가자 / 시즌 6 준우승자 / 시즌 7 프로듀서. 출생연도는 1987.03.24 이며, VMC 소속이다.';
+    else if(name == '노엘') return '쇼미더머니 시즌 6,7 참가자. 출생연도는 2000.05.30 이며, 무소속이다.';
+    else if(name == '뉴챔프') return '쇼미더머니 시즌 3,4,6,7,8 참가자. 출생연도는 1986.06.11 이며, 무소속이다.';
+    else if(name == '래원') return '쇼미더머니 시즌 6,8,9 참가자. 출생연도는 2001.11.13 이며, OUTLIVE 소속이다.';
+    else if(name == '레디') return '쇼미더머니 시즌 5,7 참가자. 출생연도는 1985.11.11 이며, 하이라이트 레코즈 소속이다.';
+    else if(name == '로꼬') return '쇼미더머니 시즌 1 우승자 / 시즌 4 프로듀서. 출생연도는 1989.12.25 이며, AOMG 소속이다.';
+    else if(name == '루피') return '쇼미더머니 시즌 7 준우승자. 출생연도는 1987.09.09 이며, MKIT RAIN 소속이다.';
+    else if(name == '릴보이') return '쇼미더머니 시즌 4 참가자 / 시즌 9 우승자. 출생연도는 1991.06.07 이며, 하프타임 레코즈 소속이다.';
+    else if(name == '릴타치') return '쇼미더머니 시즌 7,8 참가자. 출생연도는 2002.02.04 이며, WEDAPLUGG RECORDS 소속이다.';
+    else if(name == '미란이') return '쇼미더머니 시즌 7,9 참가자. 출생연도는 1996.05.14 이며, 무소속이다.';
+    else if(name == '밀릭') return '쇼미더머니 시즌 8 프로듀서. 출생연도는 1993.04.24 이며, FANXY CHILD 소속이다.';
+    else if(name == '바스코') return '쇼미더머니 시즌 3,9 참가자. 출생연도는 1980.12.18 이며, 밀리언 마켓 소속이다.';
+    else if(name == '박재범') return '쇼미더머니 시즌 4,6 프로듀서. 출생연도는 1987.04.25 이며, AOMG 수장이다.';
+    else if(name == '버벌진트') return '쇼미더머니 시즌 1 참가자 / 시즌 4,8 프로듀서. 출생연도는 1980.12.19 이며, 아더사이드 소속이다.';
+    else if(name == '베이식') return '쇼미더머니 시즌 4 우승자. 출생연도는 1986.08.12 이며, OUTLIVE 소속이다.';
+    else if(name == '사이먼도미닉') return '쇼미더머니 시즌 5 프로듀서. 출생연도는 1984.03.09 이며, AOMG 소속이다.';
+    else if(name == '산이') return '쇼미더머니 시즌 3,4 프로듀서. 출생연도는 1985.01.23 이며, 오버클래스 소속이다.';
+    else if(name == '샵건') return '쇼미더머니 시즌 5 참가자. 출생연도는 1994.06.26 이며, 로엔 엔터테인먼트 소속이다.';
+    else if(name == '서출구') return '쇼미더머니 시즌 4,5 참가자. 출생연도는 1992.12.02 이며, K타이거즈 E&C 소속이다.';
+    else if(name == '션') return '쇼미더머니 시즌 4 프로듀서. 출생연도는 1972.10.10 이며, 지누션 소속이다.';
+    else if(name == '송민호') return '쇼미더머니 시즌 4 준우승자. 출생연도는 1993.03.30 이며, YG엔터테인먼트 소속이다.';
+    else if(name == '씨잼') return '쇼미더머니 시즌 5 준우승자 / 시즌 6 참가자. 출생연도는 1993.02.28 이며, Just Music 소속이다.';
+    else if(name == '아웃사이더') return '쇼미더머니 시즌 2 프로듀서. 출생연도는 1983.03.21 이며, 이나키스트 엔터테인먼트 소속이다.';
+    else if(name == '앤덥') return '쇼미더머니 시즌 4 참가자. 출생연도는 1993.03.28 이며, 벅와일즈 소속이다.';
+    else if(name == '양동근') return '쇼미더머니 시즌 3 프로듀서. 출생연도는 1979.06.01 이며, 조엔터테인먼트 소속이다.';
+    else if(name == '양홍원') return '쇼미더머니 시즌 4,5,6 참가자 / 시즌 8 준우승자. 출생연도는 1999.01.12 이며, Indigo Music 소속이다.';
+    else if(name == '오르내림') return '쇼미더머니 시즌 4,7 참가자. 출생연도는 1996.09.18 이며, WEDAPLUGG RECORDS 소속이다.';
+    else if(name == '원슈타인') return '쇼미더머니 시즌 4,7,8,9 참가자. 출생연도는 1995.05.06 이며, 뷰티풀 노이즈 소속이다.';
+    else if(name == '육지담') return '쇼미더머니 시즌 3 참가자. 출생연도는 1997.03.13 이며, 무소속이다.';
+    else if(name == '윤비') return '쇼미더머니 시즌 6,7,8 참가자. 출생연도는 1992.04.15 이며, 하이라이트 레코즈 소속이다.';
+    else if(name == '윤훼이') return '쇼미더머니 시즌 8 참가자. 출생연도는 1995.04.06 이며, WEDAPLUGG RECORDS 소속이다.';
+    else if(name == '이노베이터') return '쇼미더머니 시즌 4 참가자. 출생연도는 1988.10.10 이며, 더블트러블 소속이다.';
+    else if(name == '자메즈') return '쇼미더머니 시즌 2,3,4,6 참가자. 출생연도는 1989.08.11 이며, 크로스하츠 소속이다.';
+    else if(name == '주노플로') return '쇼미더머니 시즌 5,6 참가자. 출생연도는 1992.09.25 이며, 무소속이다.';
+    else if(name == '주헌') return '쇼미더머니 시즌 4 참가자. 출생연도는 1994.10.06 이며, STARSHIP 소속이다.';
+    else if(name == '지조') return '쇼미더머니 시즌 2 준우승자 / 시즌 8 참가자. 출생연도는 1986.01.01 이며, QUAN 엔터테인먼트 소속이다.';
+    else if(name == '지코') return '쇼미더머니 시즌 4,6 프로듀서. 출생연도는 1992.09.14 이며, KOZ 엔터테인먼트 소속이다.';
+    else if(name == '차붐') return '쇼미더머니 시즌 7 참가자. 출생연도는 1985.04.05 이며, LBNC 소속이다.';
+    else if(name == '창모') return '쇼미더머니 시즌 3 참가자 / 시즌 7 프로듀서. 출생연도는 1994.05.31 이며, AMBITION MUSIK 소속이다.';
+    else if(name == '쿤디판다') return '쇼미더머니 시즌 5,8 참가자. 출생연도는 1997.02.11 이며, Dejavu Group 소속이다.';
+    else if(name == '키드밀리') return '쇼미더머니 시즌 7 참가자 / 시즌 8 프로듀서. 출생연도는 1993.10.26 이며, Indigo Music 소속이다.';
+    else if(name == '키썸') return '쇼미더머니 시즌 3 참가자. 출생연도는 1994.01.20 이며, kakao M 소속이다.';
+    else if(name == '킬라그램') return '쇼미더머니 시즌 6,9 참가자. 출생연도는 1992.06.23 이며, KIWI MEDIA GROUP 소속이다.';
+    else if(name == '타블로') return '쇼미더머니 시즌 3,4 프로듀서. 출생연도는 1980.07.22 이며, 아워즈 소속이다.';
+    else if(name == '타이거JK') return '쇼미더머니 시즌 6 프로듀서. 출생연도는 1974.06.11 이며, MFBTY 소속이다.';
+    else if(name == '행주') return '쇼미더머니 시즌 4 참가자 / 시즌 6 우승자. 출생연도는 1986.12.10 이며, 팀플레이 뮤직 소속이다.';
+    else if(name == '휘민') return '쇼미더머니 시즌 9 프로듀서. 출생연도는 1994.08.05 이며, H1GHR MUSIC 소속이다.';
+    
 }

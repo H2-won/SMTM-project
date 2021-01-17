@@ -238,6 +238,7 @@ header {
 .resultContainer .matchContainer .matchDescription a {
     transition: 0.2s ease-in-out;
     color: var(--grey);
+    margin: 0.5rem
 }
 
 .resultContainer .matchContainer .matchDescription a:hover {
@@ -503,10 +504,14 @@ footer i {
     background-image: none;
 }
 
-.cropper-point,
+.cropper-point {
+    background-color: var(--gold);
+    opacity: 0.85;
+}
+
 .cropper-line {
     background-color: var(--gold);
-    opacity: 0.4;
+    opacity: 0.2;
 }
 
 /* -------------------------- media query ------------------------ */
