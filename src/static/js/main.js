@@ -259,7 +259,7 @@ function afterPredict(resultContainer) {
 
     resultContainer.append(retryBtn, helpText);
 
-    window.scrollTo(0, resultContainer.offsetTop - 20);
+    window.scrollTo(0, document.querySelector('.kakaoMiddle').offsetTop - 100);
 }
 
 function namuwikiExceptionHandling(name){
