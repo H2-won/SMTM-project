@@ -316,7 +316,7 @@ function getRapperDescription(name){
     else if(name == '스윙스') return '쇼미더머니 시즌 2,9 참가자 / 시즌 7,8 프로듀서. 출생연도는 1986.10.14 이며, IMJMWDP 소속이다.';
     else if(name == '스카이민혁') return '쇼미더머니 시즌 9 참가자. 출생연도는 1998.12.05 이며, 그랜드라인 소속이다.';
     else if(name == '슬리피') return '쇼미더머니 시즌 6 참가자. 출생연도는 1984.02.21 이며, PVO 소속이다.';
-    else if(name == '오왼 오바도즈') return '쇼미더머니 시즌 3,4,7,8,9 참가자. 출생연도는 1991.10.13 이며, MKIT RAIN 소속이다.';
+    else if(name == '오왼오바도즈') return '쇼미더머니 시즌 3,4,7,8,9 참가자. 출생연도는 1991.10.13 이며, MKIT RAIN 소속이다.';
     else if(name == '올티') return '쇼미더머니 시즌 3,6,8 참가자. 출생연도는 1996.01.02 이며, ADV 소속이다.';
     else if(name == '우디고차일드') return '쇼미더머니 시즌 6,8 참가자. 출생연도는 1996.04.02 이며, H1GHR MUSIC 소속이다.';
     else if(name == '우원재') return '쇼미더머니 시즌 6 참가자. 출생연도는 1996.12.23 이며, AOMG 소속이다.';
