@@ -286,7 +286,6 @@ function namuwikiExceptionHandling(name){
 }
 
 function getRapperDescription(name){
-
     if(name == 'ph-1') return '쇼미더머니 시즌 7 참가자. 출생연도는 1989.07.23 이며, H1GHR MUSIC 소속이다.';
     else if(name == '개코') return '쇼미더머니 시즌 9 프로듀서. 출생연도는 1981.01.14 이며, 아메바컬쳐 소속이다.';
     else if(name == '규정') return '쇼미더머니 시즌 9 프로듀서. 출생연도는 1994.12.12 이며, H1GHR MUSIC 소속이다.';
@@ -396,5 +395,8 @@ function getRapperDescription(name){
     else if(name == '타이거JK') return '쇼미더머니 시즌 6 프로듀서. 출생연도는 1974.06.11 이며, MFBTY 소속이다.';
     else if(name == '행주') return '쇼미더머니 시즌 4 참가자 / 시즌 6 우승자. 출생연도는 1986.12.10 이며, 팀플레이 뮤직 소속이다.';
     else if(name == '휘민') return '쇼미더머니 시즌 9 프로듀서. 출생연도는 1994.08.05 이며, H1GHR MUSIC 소속이다.';
-    
+}
+
+function jocodingLink(){
+    window.open('https://www.youtube.com/c/%EC%A1%B0%EC%BD%94%EB%94%A9JoCoding/featured');
 }
