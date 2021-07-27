@@ -19,3 +19,8 @@
 
 ## 접속 링크
 https://resemble.ga/
+
+## Preview
+![preview](https://user-images.githubusercontent.com/59960678/127084236-c2d3242b-5a0d-4b54-9fd6-4a0550791853.png)
+<p align="center"><img src="https://user-images.githubusercontent.com/59960678/127084239-d17e98ba-edef-4f95-b7da-38243dbef772.png"  width="575" height="534"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/59960678/127084242-4fe319d1-9794-4430-becc-0d00d1194b93.png"  width="481" height="577"></p>
