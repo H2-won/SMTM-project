@@ -10,15 +10,29 @@
 
 
 # 쇼미더머니 닮은꼴 프로젝트
-쇼미더머니 모든 시즌 출연진의 얼굴을 학습시킨 모델을 적용한 닮은꼴 테스트입니다.
+- 쇼미더머니 출연진의 얼굴을 학습시킨 모델을 적용한 닮은꼴 테스트입니다.
 
+## Contributor
+- @H2-won (희원)
+- @Kang kev (kevin)
+
+## Using
+- HTML, CSS, Javascript
+- Python
+- Netlify
+- Naver Search Advisor
+- Google Search Console
+- Google Analytics
+
+## Version
+- 현재 쇼미더머니 1~9 시즌 출연진이 포함되어 있습니다.
+- 쇼미더머니 10 출연진분들은 추후 업데이트 예정
 
 ## 래퍼 명단
-`스윙스` `로꼬` `비와이` `나플라` `릴보이` `행주` `베이식` `바비` `펀치넬로` `소울다이브` ...
-
+- `스윙스` `로꼬` `비와이` `나플라` `릴보이` `행주` `베이식` `바비` `펀치넬로` `소울다이브` ... `약 110명`
 
 ## 접속 링크
-https://resemble.ga/
+- https://resemble.ga/
 
 ## Preview
 ![preview](https://user-images.githubusercontent.com/59960678/127084236-c2d3242b-5a0d-4b54-9fd6-4a0550791853.png)
