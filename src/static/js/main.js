@@ -300,6 +300,7 @@ function namuwikiExceptionHandling(name) {
   else if (name === "원") return "원(래퍼)";
   else if (name === "치타") return "치타(가수)";
   else if (name === "쿠시") return "KUSH";
+  else return name;
 }
 
 function getRapperDescription(name) {
